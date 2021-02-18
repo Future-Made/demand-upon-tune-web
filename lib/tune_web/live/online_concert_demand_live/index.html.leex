@@ -1,0 +1,57 @@
+<h1>Listing Online concert demands</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <%= live_modal @socket, TuneWeb.OnlineConcertDemandLive.FormComponent,
+    id: @online_concert_demand.id || :new,
+    title: @page_title,
+    action: @live_action,
+    online_concert_demand: @online_concert_demand,
+    return_to: Routes.online_concert_demand_index_path(@socket, :index) %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Willing to pay min</th>
+      <th>Willing to pay min</th>
+      <th>Willing to pay max</th>
+      <th>Have slow internet</th>
+      <th>Will support causes</th>
+      <th>Charitable percentage</th>
+      <th>Demand as multipass</th>
+      <th>Demand on air months</th>
+      <th>Supported causes</th>
+      <th>Requested songs</th>
+      <th>Note to artist</th>
+      <th>Can offer help</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="online_concert_demands">
+    <%= for online_concert_demand <- @online_concert_demands do %>
+      <tr id="online_concert_demand-<%= online_concert_demand.id %>">
+        <td><%= online_concert_demand.willing_to_pay_min %></td>
+        <td><%= online_concert_demand.willing_to_pay_min %></td>
+        <td><%= online_concert_demand.willing_to_pay_max %></td>
+        <td><%= online_concert_demand.have_slow_internet %></td>
+        <td><%= online_concert_demand.will_support_causes %></td>
+        <td><%= online_concert_demand.charitable_percentage %></td>
+        <td><%= online_concert_demand.demand_as_multipass %></td>
+        <td><%= online_concert_demand.demand_on_air_months %></td>
+        <td><%= online_concert_demand.supported_causes %></td>
+        <td><%= online_concert_demand.requested_songs %></td>
+        <td><%= online_concert_demand.note_to_artist %></td>
+        <td><%= online_concert_demand.can_offer_help %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.online_concert_demand_show_path(@socket, :show, online_concert_demand) %></span>
+          <span><%= live_patch "Edit", to: Routes.online_concert_demand_index_path(@socket, :edit, online_concert_demand) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: online_concert_demand.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Online concert demand", to: Routes.online_concert_demand_index_path(@socket, :new) %></span>

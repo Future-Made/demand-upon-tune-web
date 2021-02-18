@@ -1,0 +1,424 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/tune/duration.ex:51
+msgid "Less than a minute"
+msgstr "Less than a minute"
+
+#, elixir-format
+#: lib/tune/duration.ex:58 lib/tune/duration.ex:73
+msgid "1 minute"
+msgid_plural "%{count} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#, elixir-format
+#: lib/tune/duration.ex:72 lib/tune/duration.ex:77
+msgid "1 hour"
+msgid_plural "%{count} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#, elixir-format
+#: lib/tune/duration.ex:75
+msgid "%{hours} and %{minutes}"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/views/album_view.ex:31 lib/tune_web/views/playlist_view.ex:27
+msgid "1 track, %{formatted_duration}"
+msgid_plural "%{count} tracks, %{formatted_duration}"
+msgstr[0] ""
+msgstr[1] ""
+
+#, elixir-format
+#: lib/tune_web/controllers/auth_controller.ex:39
+msgid "Error authenticating via Spotify"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/controllers/auth_controller.ex:51
+msgid "Logged out"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:453
+msgid "No available devices"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:457
+msgid "Spotify error: %{reason}"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/search.html.eex:8
+#: lib/tune_web/views/artist_view.ex:31
+msgid "Album"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/search.html.eex:9
+msgid "Artist"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/progress_bar_component.html.leex:3
+msgid "Current track position"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/search.html.eex:10
+msgid "Episode"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/auth/new.html.eex:3
+msgid "Login via Spotify"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/profile.html.eex:4
+msgid "Logout"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/search/results.html.eex:8
+msgid "No results"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/mini_player_component.html.leex:20
+msgid "Not playing"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/album/show.html.eex:28
+#: lib/tune_web/templates/artist/show.html.eex:25
+msgid "Open in Last.fm"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/artist/show.html.eex:21
+msgid "Open in Wikipedia"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/search.html.eex:4
+#: lib/tune_web/templates/header/search.html.eex:4 lib/tune_web/templates/header/search.html.eex:14
+#: lib/tune_web/templates/layout/help.html.eex:23
+msgid "Search"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/search.html.eex:3
+msgid "Search query"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/search.html.eex:11
+msgid "Show"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/search.html.eex:7
+msgid "Track"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/search/results.html.eex:4
+msgid "Try and search for a song you love"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/search.html.eex:5
+msgid "Type filter"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/recommended_tracks.html.eex:8
+#: lib/tune_web/templates/suggestions/top_albums.html.eex:8
+msgid "Long Term"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/recommended_tracks.html.eex:8
+#: lib/tune_web/templates/suggestions/top_albums.html.eex:8
+msgid "Medium Term"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/recommended_tracks.html.eex:8
+#: lib/tune_web/templates/suggestions/top_albums.html.eex:8
+msgid "Short Term"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/logo.html.eex:2
+msgid "Go to Suggestions"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/mini_player_component.html.leex:9
+msgid "Switch playback device"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/top_albums.html.eex:5
+msgid "Generated from Top Tracks."
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/recommended_tracks.html.eex:5
+msgid "Generated from Top Tracks. Setting the time range generates a new recommendation list every time."
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/recommended_tracks.html.eex:4
+msgid "Recommended Tracks"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/top_albums.html.eex:4
+msgid "Top Albums"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/views/show_view.ex:16
+msgid "1 episode"
+msgid_plural "%{count} episodes"
+msgstr[0] ""
+msgstr[1] ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/index.html.eex:5
+msgid "Cannot display Release Radar - Make sure you have access to the playlist."
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/index.html.eex:3
+msgid "Cannot display Release Radar."
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/index.html.eex:22
+#: lib/tune_web/templates/suggestions/index.html.eex:33
+msgid "Cannot display top albums."
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/mini_player_component.ex:34
+msgid "this device"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/mini_player_component.html.leex:13
+msgid "Select"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/player/controls.html.eex:37
+msgid "Set volume"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/views/artist_view.ex:25
+msgid "1 album"
+msgid_plural "%{count} albums"
+msgstr[0] ""
+msgstr[1] ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/profile.html.eex:6
+#: lib/tune_web/templates/layout/app.html.eex:7
+msgid "Credits"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/header/profile.html.eex:8
+#: lib/tune_web/templates/layout/app.html.eex:9
+msgid "Source"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/album/show.html.eex:32
+#: lib/tune_web/templates/artist/show.html.eex:29
+msgid "Open in YouTube"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.html.leex:24
+msgid "Click here to reload"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.html.leex:24
+msgid "The app has been updated."
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:400
+msgid "Album details"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:407
+msgid "Album details for %{name}"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:374
+msgid "Artist details"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:391
+msgid "Artist details for %{name}"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:434
+msgid "Episode details"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:19
+#: lib/tune_web/templates/layout/root.html.leex:10
+msgid "Home"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:322
+msgid "Search results"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:336
+msgid "Search results for %{q}"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:416
+msgid "Show details"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:425
+msgid "Show details for %{name}"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/explorer_live.ex:289
+msgid "Suggestions"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/live/mini_player_component.html.leex:5
+msgid "No devices available"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:8
+msgid "Keyboard shortcuts"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:44
+msgid "Next"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:40
+msgid "Previous"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:36
+msgid "Toggle Play/Pause"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:52
+msgid "Volume down"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:48
+msgid "Volume up"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:32
+msgid "Audio Player"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:11
+msgid "General navigation"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:15
+msgid "Toggle help"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/layout/help.html.eex:27
+msgid "Focus device selector"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/index.html.eex:12
+msgid "Cannot display recently played albums."
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/recently_played_albums.html.eex:5
+msgid "Generated from Recently Played Tracks."
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/templates/suggestions/recently_played_albums.html.eex:4
+msgid "Recently Played Albums"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/controllers/auth_controller.ex:15
+msgid "Hello %{name}!"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/controllers/auth_controller.ex:19
+msgid "Hello %{name}!\nAs you don't have a premium account, the embedded audio player and all audio controls are disabled.\n"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/views/artist_view.ex:30
+msgid "All"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/views/artist_view.ex:33
+msgid "Appears On"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/views/artist_view.ex:34
+msgid "Compilation"
+msgstr ""
+
+#, elixir-format
+#: lib/tune_web/views/artist_view.ex:32
+msgid "Single"
+msgstr ""

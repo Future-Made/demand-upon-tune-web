@@ -1,0 +1,23 @@
+<article class="item" data-test-id="<%= @playlist.id %>">
+  <section class="details">
+    <div class="artwork">
+      <div class="play-button" phx-click="play" phx-value-uri="<%= @playlist.uri %>">
+        <%= render PlayerView, "icon_play.html", []%>
+      </div>
+      <%= img_tag artwork(@playlist), alt: @playlist.name %>
+    </div>
+    <div class="meta">
+      <%= content_tag :h1, @playlist.name %>
+      <%= content_tag :p, @playlist.description %>
+      <%= content_tag :p, total_duration(@playlist), class: "total-duration" %>
+    </div>
+  </section>
+  <section class="items">
+    <%= for {type, tracks} <- Playlist.albums_grouped_by_type(@playlist) do %>
+      <%= content_tag :h3, group_label(type), class: "group" %>
+      <div class="results">
+        <%= render_many tracks, SearchView, "result.html", as: :item, socket: @socket %>
+      </div>
+    <% end %>
+  </section>
+</article>

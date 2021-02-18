@@ -1,0 +1,176 @@
+@import "./colors";
+
+// Range input
+$track-color: $complementary-accent-color;
+$track-border-width: 0;
+$track-height: 4px;
+$track-shadow-size: 0;
+
+$thumb-color: $accent-color;
+$thumb-height: 16px;
+$thumb-width: 16px;
+$thumb-radius: 4px;
+$thumb-shadow-size: 0;
+$thumb-border-color: $light-gray;
+$thumb-border-width: 1px;
+@import "./input-range";
+
+html {
+  background-color: $light-gray;
+}
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+
+button,
+.button {
+  background-color: $accent-color;
+  border-color: $accent-color;
+  color: white;
+
+  &:hover,
+  &.active {
+    background-color: $complementary-accent-color;
+    border-color: $complementary-accent-color;
+  }
+
+  svg {
+    fill: white;
+  }
+}
+
+a {
+  color: $accent-color;
+
+  &:visited {
+    color: $accent-color;
+  }
+
+  &:hover,
+  &.active {
+    color: $complementary-accent-color;
+  }
+}
+
+progress {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: $complementary-accent-color;
+  color: $accent-color;
+  border: none;
+  border-radius: 4px;
+
+  &::-moz-progress-bar {
+    background-color: $accent-color;
+    border: 1px solid $light-gray;
+    border-radius: 4px;
+  }
+
+  &::-webkit-progress-bar {
+    background-color: $complementary-accent-color;
+    border-radius: 4px;
+  }
+
+  &::-webkit-progress-value {
+    background-color: $accent-color;
+    border: 1px solid $light-gray;
+    border-radius: 4px;
+    transition: width 0.1s;
+  }
+}
+
+a.reversed {
+  color: white;
+
+  &:visited {
+    color: white;
+  }
+
+  &:hover,
+  &.active {
+    color: darken(white, 20%);
+  }
+}
+
+.button-small {
+  height: 2.8rem;
+  line-height: 2.8rem;
+  padding: 0 1.5rem;
+}
+
+.button-group {
+  display: flex;
+
+  button,
+  .button {
+    border-radius: 0;
+
+    svg {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+    &:first-child {
+      border-top-left-radius: 0.4rem;
+      border-bottom-left-radius: 0.4rem;
+    }
+
+    &:last-child {
+      border-top-right-radius: 0.4rem;
+      border-bottom-right-radius: 0.4rem;
+    }
+  }
+}
+
+svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+kbd {
+  background-color: #eee;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+.svg-link {
+  display: inline-flex;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+
+.full-screen-notice {
+  text-align: center;
+  padding: 3em;
+
+  p {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 768px) {
+  .button-small {
+    padding: 0 0.8rem;
+  }
+}

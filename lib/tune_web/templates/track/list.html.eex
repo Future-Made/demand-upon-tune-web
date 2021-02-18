@@ -1,0 +1,35 @@
+<ul class="tracks">
+  <%= for track <- @tracks do %>
+    <%= if playing?(track, @now_playing) do %>
+      <li class="playing" data-test-id="<%= track.id %>">
+        <span class="track-number">&#127926;</span>
+        <span class="name" phx-click="play" phx-value-uri="<%= track.uri %>" phx-value-context-uri="<%= @album.uri %>"><%= track.name %></span>
+        <span class="duration"><%= Tune.Duration.hms(track.duration_ms) %></span>
+        <%= link to: Link.last_fm(track, @album, @artist), class: "last-fm", target: "_blank" do %>
+          <%= render "icon_last_fm.html", [] %>
+        <% end %>
+        <%= link to: Link.youtube(track, @artist), class: "youtube", target: "_blank" do %>
+          <%= render "icon_youtube.html", [] %>
+        <% end %>
+        <%= link to: Link.musixmatch(track, @artist), class: "lyrics", target: "_blank" do %>
+          <%= render "icon_lyrics.html", [] %>
+        <% end %>
+      </li>
+    <% else %>
+      <li data-test-id="<%= track.id %>">
+        <span class="track-number"><%= track.track_number %></span>
+        <span class="name" phx-click="play" phx-value-uri="<%= track.uri %>" phx-value-context-uri="<%= @album.uri %>"><%= track.name %></span>
+        <span class="duration"><%= Tune.Duration.hms(track.duration_ms) %></span>
+        <%= link to: Link.last_fm(track, @album, @artist), class: "last-fm", target: "_blank" do %>
+          <%= render "icon_last_fm.html", [] %>
+        <% end %>
+        <%= link to: Link.youtube(track, @artist), class: "youtube", target: "_blank" do %>
+          <%= render "icon_youtube.html", [] %>
+        <% end %>
+        <%= link to: Link.musixmatch(track, @artist), class: "lyrics", target: "_blank" do %>
+          <%= render "icon_lyrics.html", [] %>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

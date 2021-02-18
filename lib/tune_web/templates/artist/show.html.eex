@@ -1,0 +1,56 @@
+<%= case @artist do %>
+  <% :not_fetched -> %>
+    <div class="full-screen-notice">
+      <p>Artist not available.</p>
+    </div>
+  <% _artist -> %>
+    <article class="item" data-test-id="<%= @artist.id %>">
+      <section class="details">
+        <div class="artwork">
+          <div class="play-button" phx-click="play" phx-value-uri="<%= @artist.uri %>">
+            <%= render TuneWeb.PlayerView, "icon_play.html", []%>
+          </div>
+          <%= img_tag artwork(@artist), alt: @artist.name %>
+        </div>
+        <div class="meta">
+          <%= content_tag :h1, @artist.name %>
+          <%= content_tag :p, total_albums(@artist) %>
+          <div class="reference-links">
+            <%= link to: Link.wikipedia(@artist), target: "_blank", class: "svg-link wikipedia" do %>
+              <%= render "icon_wikipedia.html", [] %>
+              <%= content_tag :span, gettext("Open in Wikipedia"), class: "visually-hidden" %>
+            <% end %>
+            <%= link to: Link.last_fm(@artist), target: "_blank", class: "svg-link last-fm" do %>
+              <%= render TuneWeb.TrackView, "icon_last_fm.html", [] %>
+              <%= content_tag :span, gettext("Open in Last.fm"), class: "visually-hidden" %>
+            <% end %>
+            <%= link to: Link.youtube(@artist), target: "_blank", class: "svg-link youtube" do %>
+              <%= render TuneWeb.TrackView, "icon_youtube.html", [] %>
+              <%= content_tag :span, gettext("Open in YouTube"), class: "visually-hidden" %>
+            <% end %>
+          </div>
+        </div>
+      </section>
+      <section class="items">
+        <div class="filters">
+          <div class="controls button-group">
+            <%= for {album_group, label} <- album_groups() do %>
+              <% active_class = if @artist_albums_group == album_group, do: "active" %>
+              <%= live_patch label, to: Routes.explorer_path(@socket, :artist_details, @artist.id, album_group: album_group),
+                              class: "button button-small reversed #{active_class}" %>
+            <% end %>
+          </div>
+          <%= if @artist.total_albums > @per_page do %>
+            <%= render PaginationView, "selector.html",
+                pagination_opts: PaginationView.pagination_opts(@page, @per_page, @artist.total_albums),
+                url_fn: fn(current_page, per_page) ->
+                  Routes.explorer_path(@socket, :artist_details, @artist.id, album_group: @artist_albums_group, page: current_page, per_page: per_page)
+                end %>
+          <% end %>
+        </div>
+        <div class="results">
+          <%= render_many @artist.albums, TuneWeb.ArtistView, "album.html", as: :album, socket: @socket %>
+        </div>
+      </section>
+    </article>
+  <% end %>

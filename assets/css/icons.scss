@@ -1,0 +1,35 @@
+.last-fm {
+  svg {
+    fill: #b90000;
+  }
+
+  &:hover svg {
+    fill: black;
+  }
+}
+
+.wikipedia {
+  &:hover svg {
+    fill: #36c;
+  }
+}
+
+.youtube {
+  svg {
+    fill: #ff0000;
+  }
+
+  &:hover svg {
+    fill: black;
+  }
+}
+
+.lyrics {
+  svg {
+    fill: #2c3e50;
+  }
+
+  &:hover svg {
+    fill: #ff6633;
+  }
+}

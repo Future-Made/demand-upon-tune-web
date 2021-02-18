@@ -1,0 +1,24 @@
+.top-albums,
+.recommended-tracks {
+  margin-top: 2rem;
+
+  .filter {
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .top-albums,
+  .recommended-tracks {
+    .filter {
+      margin-bottom: 2rem;
+      text-align: center;
+
+      .button-group {
+        justify-content: center;
+      }
+    }
+  }
+}
