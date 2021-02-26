@@ -26,6 +26,11 @@ defmodule TuneWeb.Router do
     plug :ensure_authenticated
   end
 
+  scope "/" do
+    pipe_through :browser
+    pow_routes()
+  end
+
   scope "/auth", TuneWeb do
     pipe_through :browser
 
@@ -65,8 +70,6 @@ defmodule TuneWeb.Router do
 
   scope "/" do
     pipe_through [:admin, :browser]
-
-    pow_routes()
 
     live_dashboard "/dashboard",
       metrics: TuneWeb.Telemetry,

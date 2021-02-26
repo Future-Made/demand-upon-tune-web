@@ -18,7 +18,8 @@ config :tune, ecto_repos: [Tune.Repo]
 
 config :tune, :pow,
   user: Tune.Users.User,
-  repo: Tune.Repo
+  repo: Tune.Repo,
+  web_module: TuneWeb
 
 config :tune, TuneWeb.Endpoint,
   url: [host: "localhost"],
