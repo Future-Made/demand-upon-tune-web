@@ -1,20 +1,7 @@
 <h1>Show Online concert demand</h1>
 
-<%= if @live_action in [:edit] do %>
-  <%= live_modal @socket, TuneWeb.OnlineConcertDemandLive.FormComponent,
-    id: @online_concert_demand.id,
-    title: @page_title,
-    action: @live_action,
-    online_concert_demand: @online_concert_demand,
-    return_to: Routes.online_concert_demand_show_path(@socket, :show, @online_concert_demand) %>
-<% end %>
-
 <ul>
 
-  <li>
-    <strong>Willing to pay min:</strong>
-    <%= @online_concert_demand.willing_to_pay_min %>
-  </li>
 
   <li>
     <strong>Willing to pay min:</strong>
@@ -47,13 +34,8 @@
   </li>
 
   <li>
-    <strong>Demand on air months:</strong>
+    <strong>Demand on air (months):</strong>
     <%= @online_concert_demand.demand_on_air_months %>
-  </li>
-
-  <li>
-    <strong>Supported causes:</strong>
-    <%= @online_concert_demand.supported_causes %>
   </li>
 
   <li>
@@ -71,7 +53,17 @@
     <%= @online_concert_demand.can_offer_help %>
   </li>
 
+  <li>
+    <strong>User:</strong>
+    <%= @online_concert_demand.user_id %>
+  </li>
+
+  <li>
+    <strong>Artist:</strong>
+    <%= @online_concert_demand.artist_id %>
+  </li>
+
 </ul>
 
-<span><%= live_patch "Edit", to: Routes.online_concert_demand_show_path(@socket, :edit, @online_concert_demand), class: "button" %></span>
-<span><%= live_redirect "Back", to: Routes.online_concert_demand_index_path(@socket, :index) %></span>
+<span><%= link "Edit", to: Routes.online_concert_demand_path(@conn, :edit, @online_concert_demand) %></span>
+<span><%= link "Back", to: Routes.online_concert_demand_path(@conn, :index) %></span>

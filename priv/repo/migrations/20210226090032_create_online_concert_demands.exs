@@ -13,9 +13,16 @@ defmodule Tune.Repo.Migrations.CreateOnlineConcertDemands do
       add :requested_songs, {:array, :string}
       add :note_to_artist, :string
       add :can_offer_help, :boolean, default: false, null: false
+      add :artist_id, :string
 
       timestamps()
     end
+
+    alter table(:online_concert_demands) do
+      add :user_id, references(:users, on_delete: :nothing)
+    end
+
+    create index(:online_concert_demands, [:user_id])
 
   end
 end

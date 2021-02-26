@@ -13,7 +13,6 @@ defmodule TuneWeb.OnlineConcertDemandLiveTest do
     have_slow_internet: true,
     note_to_artist: "some note_to_artist",
     requested_songs: [],
-    supported_causes: [],
     will_support_causes: [],
     willing_to_pay_max: 42,
     willing_to_pay_min: 42
@@ -26,7 +25,6 @@ defmodule TuneWeb.OnlineConcertDemandLiveTest do
     have_slow_internet: false,
     note_to_artist: "some updated note_to_artist",
     requested_songs: [],
-    supported_causes: [],
     will_support_causes: [],
     willing_to_pay_max: 43,
     willing_to_pay_min: 43
@@ -39,7 +37,6 @@ defmodule TuneWeb.OnlineConcertDemandLiveTest do
     have_slow_internet: nil,
     note_to_artist: nil,
     requested_songs: nil,
-    supported_causes: nil,
     will_support_causes: nil,
     willing_to_pay_max: nil,
     willing_to_pay_min: nil
@@ -64,7 +61,7 @@ defmodule TuneWeb.OnlineConcertDemandLiveTest do
     } do
       {:ok, _index_live, html} = live(conn, Routes.online_concert_demand_index_path(conn, :index))
 
-      assert html =~ "Listing Online concert demands"
+      assert html =~ "your online concert demands"
       assert html =~ online_concert_demand.note_to_artist
     end
 
@@ -99,7 +96,7 @@ defmodule TuneWeb.OnlineConcertDemandLiveTest do
       assert index_live
              |> element("#online_concert_demand-#{online_concert_demand.id} a", "Edit")
              |> render_click() =~
-               "Edit Online concert demand"
+               "Update your demand"
 
       assert_patch(
         index_live,
@@ -156,7 +153,7 @@ defmodule TuneWeb.OnlineConcertDemandLiveTest do
         live(conn, Routes.online_concert_demand_show_path(conn, :show, online_concert_demand))
 
       assert show_live |> element("a", "Edit") |> render_click() =~
-               "Edit Online concert demand"
+               "Update your demand"
 
       assert_patch(
         show_live,

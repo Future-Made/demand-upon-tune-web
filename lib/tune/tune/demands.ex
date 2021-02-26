@@ -1,4 +1,4 @@
-defmodule Tune.Demands do
+defmodule Tune.Tune.Demands do
   @moduledoc """
   The Tune.Demands context.
   """
@@ -6,7 +6,7 @@ defmodule Tune.Demands do
   import Ecto.Query, warn: false
   alias Tune.Repo
 
-  alias Tune.Demands.OnlineConcertDemand
+  alias Tune.Tune.Demands.OnlineConcertDemand
 
   @doc """
   Returns the list of online_concert_demands.

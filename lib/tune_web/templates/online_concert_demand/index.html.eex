@@ -1,0 +1,48 @@
+<h3>your online concert demands</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Willing to pay min</th>
+      <th>Willing to pay max</th>
+      <th>Have slow internet</th>
+      <th>Will support causes</th>
+      <th>Charitable percentage</th>
+      <th>Demand as multipass</th>
+      <th>Demand on air (months)</th>
+      <th>Requested songs</th>
+      <th>Note to artist</th>
+      <th>Can offer help</th>
+      <th>User</th>
+      <th>Artist</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for online_concert_demand <- @online_concert_demands do %>
+    <tr>
+      <td><%= online_concert_demand.willing_to_pay_min %></td>
+      <td><%= online_concert_demand.willing_to_pay_max %></td>
+      <td><%= online_concert_demand.have_slow_internet %></td>
+      <td><%= online_concert_demand.will_support_causes %></td>
+      <td><%= online_concert_demand.charitable_percentage %></td>
+      <td><%= online_concert_demand.demand_as_multipass %></td>
+      <td><%= online_concert_demand.demand_on_air_months %></td>
+      <td><%= online_concert_demand.requested_songs %></td>
+      <td><%= online_concert_demand.note_to_artist %></td>
+      <td><%= online_concert_demand.can_offer_help %></td>
+      <td><%= online_concert_demand.user_id %></td>
+      <td><%= online_concert_demand.artist_id %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.online_concert_demand_path(@conn, :show, online_concert_demand) %></span>
+        <span><%= link "Edit", to: Routes.online_concert_demand_path(@conn, :edit, online_concert_demand) %></span>
+        <span><%= link "Delete", to: Routes.online_concert_demand_path(@conn, :delete, online_concert_demand), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Online concert demand", to: Routes.online_concert_demand_path(@conn, :new) %></span>

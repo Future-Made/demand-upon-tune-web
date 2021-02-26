@@ -47,18 +47,13 @@ defmodule TuneWeb.Router do
 
     live "/", ExplorerLive, :suggestions
 
-    # Concert Demands
-    live "/online_concert_demands", OnlineConcertDemandLive.Index, :index
-    live "/online_concert_demands/new", OnlineConcertDemandLive.Index, :new
-    live "/online_concert_demands/:id/edit", OnlineConcertDemandLive.Index, :edit
-    live "/online_concert_demands/:id", OnlineConcertDemandLive.Show, :show
-    live "/online_concert_demands/:id/show/edit", OnlineConcertDemandLive.Show, :edit
-
     live "/search", ExplorerLive, :search
     live "/artists/:artist_id", ExplorerLive, :artist_details
     live "/albums/:album_id", ExplorerLive, :album_details
     live "/shows/:show_id", ExplorerLive, :show_details
     live "/episodes/:episode_id", ExplorerLive, :episode_details
+
+    resources "/online_concert_demands", OnlineConcertDemandController
   end
 
   # Other scopes may use custom stacks.
