@@ -1,0 +1,22 @@
+---------------------
+decomposing spotify plug check from email/password based flow (pow auth integration)
+
+as-is: even logged in, redirect to main page results with 
+@ branch: add-email-based-regitration-on-mainpage  (named with typo)
+
+---------------------
+connecting concert demand to user (audience participant) 
+
+Tune.Users.User
+
+make full-detail concert demand visible to only demander for now.
+
+@ branch: [to-be-created]
+
+---------------------
+
+enabling online concert demand form initiate-able from artist profile.
+
+Tune.Tune.Demands.OnlineConcertDemand
+
+@ branch: [to-be-created]
