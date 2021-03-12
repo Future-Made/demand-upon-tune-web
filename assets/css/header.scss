@@ -1,6 +1,6 @@
 @import "./colors";
 
-$logo-dimension: 4rem;
+$logo-dimension: 8rem;
 
 #navbar {
   display: grid;
@@ -17,7 +17,7 @@ $logo-dimension: 4rem;
     svg {
       width: $logo-dimension;
       height: $logo-dimension;
-      margin-top: 0.4rem;
+      margin-top: 0.2rem;
       fill: $accent-color;
     }
   }
