@@ -19,7 +19,12 @@ defmodule TuneWeb.AuthController do
           gettext(
             """
             Hello %{name}!
-            As you don't have a premium account, the embedded audio player and all audio controls are disabled.
+            As Spotify limits 3rd party apps on providing audio controls;
+            you will be able to see the song syncing,
+            if there is something already playing on your Spotify account.
+
+            We are expecting you to feel even more empathetic,
+            on feeling what hearing-impaired among us are experiencing.
             """,
             %{name: auth.info.name}
           )
