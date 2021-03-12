@@ -2,4 +2,4 @@
 
 <%= render "form.html", Map.put(assigns, :action, Routes.online_concert_demand_path(@conn, :update, @online_concert_demand)) %>
 
-<span><%= link "Back", to: Routes.online_concert_demand_path(@conn, :index) %></span>
+<span><%= link "my demands, on-air", to: Routes.online_concert_demand_path(@conn, :index) %></span>

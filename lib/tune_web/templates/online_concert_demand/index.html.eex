@@ -45,4 +45,4 @@
   </tbody>
 </table>
 
-<span><%= link "New Online concert demand", to: Routes.online_concert_demand_path(@conn, :new) %></span>
+<span><%= link "new concert demand", to: Routes.online_concert_demand_path(@conn, :new) %></span>

@@ -1,4 +1,4 @@
-defmodule Tune.Tune.Demands do
+defmodule Tune.Demands do
   @moduledoc """
   The Tune.Demands context.
   """
@@ -6,7 +6,7 @@ defmodule Tune.Tune.Demands do
   import Ecto.Query, warn: false
   alias Tune.Repo
 
-  alias Tune.Tune.Demands.OnlineConcertDemand
+  alias Tune.Demands.OnlineConcertDemand
 
   @doc """
   Returns the list of online_concert_demands.
@@ -17,8 +17,8 @@ defmodule Tune.Tune.Demands do
       [%OnlineConcertDemand{}, ...]
 
   """
-  def list_online_concert_demands do
-    Repo.all(OnlineConcertDemand)
+  def list_online_concert_demands(spotify_username) do
+    Repo.all(from demand in OnlineConcertDemand, where: demand.user_id == ^spotify_username)
   end
 
   @doc """
@@ -50,6 +50,7 @@ defmodule Tune.Tune.Demands do
 
   """
   def create_online_concert_demand(attrs \\ %{}) do
+
     %OnlineConcertDemand{}
     |> OnlineConcertDemand.changeset(attrs)
     |> Repo.insert()

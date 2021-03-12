@@ -1,4 +1,4 @@
-<h1>New Online concert demand</h1>
+<h1>new concert demand</h1>
 
 <%= render "form.html", Map.put(assigns, :action, Routes.online_concert_demand_path(@conn, :create)) %>
 

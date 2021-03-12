@@ -1,9 +1,14 @@
 <div class="profile">
+
+   <%= link gettext("my demands"), to: Routes.online_concert_demand_path(@socket, :index), target: "_blank"%>
+   &nbsp; <| &nbsp;
+
   <%= img_tag user_avatar(@user), alt: @user.name %>
   <p><%= @user.name %></p>
-  <%= link gettext("Logout"), to: Routes.auth_path(@socket, :delete), method: :post %>
+
+  <%= link gettext("logout"), to: Routes.auth_path(@socket, :delete), method: :post %>
   &nbsp;·&nbsp;
-  <%= link gettext("Credits"), to: "https://github.com/fully-forged/tune#credits", target: "_blank" %>
+  <%= link gettext("credits"), to: "https://github.com/fully-forged/tune#credits", target: "_blank" %>
   &nbsp;·&nbsp;
-  <%= link gettext("Source"), to: "https://github.com/fully-forged/tune", target: "_blank" %>
+  <%= link gettext("source"), to: "https://github.com/future-made/demand-upon-tune-web", target: "_blank" %>
 </div>

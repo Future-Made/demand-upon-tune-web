@@ -1,11 +1,12 @@
 defmodule TuneWeb.OnlineConcertDemandController do
   use TuneWeb, :controller
 
-  alias Tune.Tune.Demands
-  alias Tune.Tune.Demands.OnlineConcertDemand
+  alias Tune.Demands
+  alias Tune.Demands.OnlineConcertDemand
 
   def index(conn, _params) do
-    online_concert_demands = Demands.list_online_concert_demands()
+    spotify_username = conn.assigns.user.name
+    online_concert_demands = Demands.list_online_concert_demands(spotify_username)
     render(conn, "index.html", online_concert_demands: online_concert_demands)
   end
 
@@ -15,10 +16,15 @@ defmodule TuneWeb.OnlineConcertDemandController do
   end
 
   def create(conn, %{"online_concert_demand" => online_concert_demand_params}) do
+    # add spotify username to demand.
+    online_concert_demand_params = online_concert_demand_params
+    |> Map.put("user_id", conn.assigns.user.name)
+
     case Demands.create_online_concert_demand(online_concert_demand_params) do
       {:ok, online_concert_demand} ->
+
         conn
-        |> put_flash(:info, "Online concert demand created successfully.")
+        |> put_flash(:info, "well, now your demand is literally on-air!")
         |> redirect(to: Routes.online_concert_demand_path(conn, :show, online_concert_demand))
 
       {:error, %Ecto.Changeset{} = changeset} ->

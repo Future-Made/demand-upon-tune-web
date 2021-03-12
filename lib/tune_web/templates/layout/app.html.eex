@@ -4,43 +4,15 @@
       <%= render TuneWeb.HeaderView, "icon_logo.html" %>
     </div>
 
-    <div class="links">
 
-    <ul class="right">
+      <div class="profile">
+  <%= link gettext("login"), to: Routes.auth_path(@conn, :delete), method: :post %>
+  &nbsp;·&nbsp;
+  <%= link gettext("credits"), to: "https://github.com/fully-forged/tune#credits", target: "_blank" %>
+  &nbsp;·&nbsp;
+  <%= link gettext("source"), to: "https://github.com/fully-forged/tune", target: "_blank" %>
+</div>
 
-         <%= if Pow.Plug.current_user(@conn) do %>
-            <%= if Enum.member?(["/" <> Enum.join(@conn.path_info, "/")], "/online_concert_demands") == false do %>
-                <li> <span><%= link "my demands", to: Routes.online_concert_demand_path(@conn, :index),  class: "btn" %></span></li>
-            <%end%>
-              <li>
-                <%= link "my account", to: Routes.pow_registration_path(@conn, :edit), class: "btn", method: :get %>
-                <%# <%= if Tune.Users.is_admin?(Pow.Plug.current_user(@conn)) do %>
-                <%# <% end %>
-              </li>
-
-              <li>
-                <%= link "sign out", to: Routes.pow_session_path(@conn, :delete), class: "button button-outline", class: "btn", method: :delete %>
-              </li>
-
-              <% else %>
-             <li>
-                <%= link "login", to: Routes.pow_session_path(@conn, :new), class: "btn" %>
-              </li>
-             <li>
-                <%= link "join with e-mail", to: Routes.pow_registration_path(@conn, :new), class: "btn" %>
-              </li>
-
-              <li>
-                 <%= link gettext("Credits"), to: "https://github.com/fully-forged/tune#credits", target: "_blank" %>
-&nbsp;·&nbsp;
-      </li>
-
-      <li>  <%= link gettext("Source"), to: "https://github.com/fully-forged/tune", target: "_blank" %></li>
-
-            <% end %>
-
-
-      </ul>
 
     </div>
   </nav>

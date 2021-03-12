@@ -1,10 +1,10 @@
-defmodule Tune.Tune.DemandsTest do
+defmodule Tune.DemandsTest do
   use Tune.DataCase
 
-  alias Tune.Tune.Demands
+  alias Tune.Demands
 
   describe "online_concert_demands" do
-    alias Tune.Tune.Demands.OnlineConcertDemand
+    alias Tune.Demands.OnlineConcertDemand
 
     @valid_attrs %{artist_id: "some artist_id", can_offer_help: true, charitable_percentage: 42, demand_as_multipass: true, demand_on_air_months: 42, have_slow_internet: true, note_to_artist: "some note_to_artist", requested_songs: [], user_id: 42, will_support_causes: [], willing_to_pay_max: 42, willing_to_pay_min: 42}
     @update_attrs %{artist_id: "some updated artist_id", can_offer_help: false, charitable_percentage: 43, demand_as_multipass: false, demand_on_air_months: 43, have_slow_internet: false, note_to_artist: "some updated note_to_artist", requested_songs: [], user_id: 43, will_support_causes: [], willing_to_pay_max: 43, willing_to_pay_min: 43}
