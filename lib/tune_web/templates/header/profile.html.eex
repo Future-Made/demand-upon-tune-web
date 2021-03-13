@@ -1,14 +1,30 @@
 <div class="profile">
 
-   <%= link gettext("my demands"), to: Routes.online_concert_demand_path(@socket, :index), target: "_blank"%>
-   &nbsp; <| &nbsp;
+  <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
+   <%= link gettext("my demands"), to: Routes.online_concert_demand_path(@socket, :index), class: "btn" %>
 
+  </button>
+   &nbsp;·&nbsp;
+  &nbsp;·&nbsp;
   <%= img_tag user_avatar(@user), alt: @user.name %>
-  <p><%= @user.name %></p>
+  &nbsp;&nbsp;&nbsp;
 
-  <%= link gettext("logout"), to: Routes.auth_path(@socket, :delete), method: :post %>
+
+ &nbsp;·&nbsp;
   &nbsp;·&nbsp;
+    <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
   <%= link gettext("credits"), to: "https://github.com/fully-forged/tune#credits", target: "_blank" %>
+
+  </button>
+ &nbsp;·&nbsp;
   &nbsp;·&nbsp;
+     <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
   <%= link gettext("source"), to: "https://github.com/future-made/demand-upon-tune-web", target: "_blank" %>
+
+  </button>
+
+    <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
+  <%= link gettext("logout"), to: Routes.auth_path(@socket, :delete), method: :post %>
+
+  </button>
 </div>

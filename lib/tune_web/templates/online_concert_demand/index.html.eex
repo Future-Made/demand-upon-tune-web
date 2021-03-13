@@ -1,20 +1,17 @@
-<h3>your online concert demands</h3>
-
 <table>
   <thead>
     <tr>
-      <th>Willing to pay min</th>
-      <th>Willing to pay max</th>
-      <th>Have slow internet</th>
-      <th>Will support causes</th>
-      <th>Charitable percentage</th>
-      <th>Demand as multipass</th>
-      <th>Demand on air (months)</th>
-      <th>Requested songs</th>
-      <th>Note to artist</th>
-      <th>Can offer help</th>
-      <th>User</th>
-      <th>Artist</th>
+      <th>artist</th>
+      <th>willing to pay min</th>
+      <th>willing to pay max</th>
+      <th>will have slow internet</th>
+      <th>will support causes</th>
+      <th>charitable percentage</th>
+      <th>demanded as multipass</th>
+      <th>will stay for (months)</th>
+      <th>requested songs</th>
+      <th>note to artist</th>
+      <th>can offer help</th>
 
       <th></th>
     </tr>
@@ -22,6 +19,7 @@
   <tbody>
 <%= for online_concert_demand <- @online_concert_demands do %>
     <tr>
+      <td><%= online_concert_demand.artist_id %></td>
       <td><%= online_concert_demand.willing_to_pay_min %></td>
       <td><%= online_concert_demand.willing_to_pay_max %></td>
       <td><%= online_concert_demand.have_slow_internet %></td>
@@ -32,8 +30,7 @@
       <td><%= online_concert_demand.requested_songs %></td>
       <td><%= online_concert_demand.note_to_artist %></td>
       <td><%= online_concert_demand.can_offer_help %></td>
-      <td><%= online_concert_demand.user_id %></td>
-      <td><%= online_concert_demand.artist_id %></td>
+
 
       <td>
         <span><%= link "Show", to: Routes.online_concert_demand_path(@conn, :show, online_concert_demand) %></span>
@@ -45,4 +42,4 @@
   </tbody>
 </table>
 
-<span><%= link "new concert demand", to: Routes.online_concert_demand_path(@conn, :new) %></span>
+<span><%= link "demand a new one", to: Routes.online_concert_demand_path(@conn, :new) %></span>

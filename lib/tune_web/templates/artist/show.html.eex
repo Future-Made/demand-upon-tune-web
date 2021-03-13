@@ -14,7 +14,9 @@
         </div>
         <div class="meta">
           <%= content_tag :h1, @artist.name %>
-     &nbsp; <%= link "Demand Performance", to: Routes.online_concert_demand_path(@socket, :new), class: "button"%>
+     &nbsp;
+       <%= link "Demand a Performance @ future", to: Routes.online_concert_demand_path(@socket, :new), class: "button button-small reversed" %>
+
           <%= content_tag :p, total_albums(@artist) %>
           <div class="reference-links">
             <%= link to: Link.wikipedia(@artist), target: "_blank", class: "svg-link wikipedia" do %>
@@ -31,7 +33,9 @@
             <% end %>
           </div>
         </div>
+        <br>
       </section>
+
       <section class="items">
         <div class="filters">
           <div class="controls button-group">

@@ -16,7 +16,7 @@
         </li>
         <li>
           <kbd>h</kbd>
-          <%= gettext("Home") %>
+          <%= gettext("Future, Made") %>
         </li>
         <li>
           <kbd>/</kbd>

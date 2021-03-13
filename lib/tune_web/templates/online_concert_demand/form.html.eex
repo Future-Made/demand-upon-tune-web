@@ -5,6 +5,11 @@
     </div>
   <% end %>
 
+
+  <%= label f, :artist_id %>
+  <%= text_input f, :artist_id %>
+  <%= error_tag f, :artist_id %>
+
   <%= label f, :i_am_willing_to_pay_min %>
   <%= number_input f, :willing_to_pay_min %>
   <%= error_tag f, :willing_to_pay_min %>
