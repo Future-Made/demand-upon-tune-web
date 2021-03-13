@@ -286,7 +286,7 @@ defmodule TuneWeb.ExplorerLive do
   defp spotify_session, do: Application.get_env(:tune, :spotify_session)
 
   defp handle_suggestions(_params, _url, socket) do
-    socket = assign(socket, :page_title, gettext("Suggestions"))
+    socket = assign(socket, :page_title, gettext("Future, Made"))
 
     with {:ok, playlist} <- get_suggestions_playlist(socket.assigns.session_id),
          {:ok, top_tracks} <-
