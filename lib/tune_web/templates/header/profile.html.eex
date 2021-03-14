@@ -1,14 +1,14 @@
 <div class="profile">
 
-<button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
-   <%= link gettext("my demands"), to: Routes.online_concert_demand_path(@socket, :index)%>
+<button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-green-200">
+   <%= link gettext("my demands ;)"), to: Routes.online_concert_demand_path(@socket, :index)%>
 
   </button>
 
    &nbsp;·&nbsp;
 
-     <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
-  <%= link gettext("demand another"), to: Routes.online_concert_demand_path(@socket, :new) %>
+     <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-yellow-400">
+  <%= link gettext("demand new?"), to: Routes.online_concert_demand_path(@socket, :new) %>
 
   </button>
  &nbsp;&nbsp; · &nbsp; &nbsp;
@@ -23,15 +23,14 @@
   <%= link gettext("credits"), to: "https://github.com/fully-forged/tune#credits", target: "_blank" %>
 
   </button>
- &nbsp;·&nbsp;
   &nbsp;·&nbsp;
      <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
   <%= link gettext("source"), to: "https://github.com/future-made/demand-upon-tune-web", target: "_blank" %>
 
   </button>
-
-    <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
-  <%= link gettext("logout"), to: Routes.auth_path(@socket, :delete), method: :post %>
+  &nbsp;···· &nbsp;
+    <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-red-400">
+  <%= link gettext("logout |>"), to: Routes.auth_path(@socket, :delete), method: :post %>
 
   </button>
 </div>
