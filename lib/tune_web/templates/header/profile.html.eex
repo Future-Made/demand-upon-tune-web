@@ -28,7 +28,7 @@
   <%= link gettext("source"), to: "https://github.com/future-made/demand-upon-tune-web", target: "_blank" %>
 
   </button>
-  &nbsp;···· &nbsp;
+  &nbsp;&nbsp;&nbsp;
     <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-red-400">
   <%= link gettext("logout |>"), to: Routes.auth_path(@socket, :delete), method: :post %>
 

@@ -4,7 +4,7 @@
 <div class="container my-12 mx-auto px-4 md:px-12">
 
     <p class="no-underline md:underline ...">
-    You've recently demanded quite many!
+    You've demanded quite many online concerts!
     </p>
 
     <div class="flex flex-wrap -mx-1 lg:-mx-4">
@@ -15,9 +15,9 @@
  <!-- Article -->
             <article class="overflow-hidden rounded-lg shadow-lg">
 
-                <a href="#">
+                <%# <a href="#">
                     <img alt="Placeholder" class="block h-auto w-full" src="https://picsum.photos/600/400/?random">
-                </a>
+                </a> %>
 
                 <header class="flex items-center justify-between leading-tight p-2 md:p-4">
 
@@ -31,13 +31,13 @@
 
                     &nbsp; &nbsp;
                           <p class="text-grey-darker text-sm">
-                       <strong> can chip in <%= online_concert_demand.willing_to_pay_min %> to <%= online_concert_demand.willing_to_pay_max %> Euros </strong>
+                       <strong> would chip in <%= online_concert_demand.willing_to_pay_min %> to <%= online_concert_demand.willing_to_pay_max %> Euros </strong>
 
                     </p>
 
 
                     <p class="text-grey-darker text-sm">
-                         <strong>  & reserving <%= online_concert_demand.charitable_percentage %> % of it for  positive impact </strong>.
+                         <strong>  & reserve <%= online_concert_demand.charitable_percentage %> % of it for  positive impact </strong>.
                     </p>
 
                 </header>

@@ -454,8 +454,12 @@ defmodule TuneWeb.ExplorerLive do
   end
 
   defp handle_spotify_session_result({:error, reason}, socket) do
-    error_message = gettext("Spotify error: %{reason}", %{reason: inspect(reason)})
-    {:noreply, put_flash(socket, :error, error_message)}
+    error_message_part_1 = gettext("This is how we have empatethic moments with our hearing-impaired fellows.", %{reason: inspect(reason)})
+    error_message_part_2 = gettext("Each of us have some privilages that are not easy to share. Can't play or hear if connected Spotify account is non-premium. It just syncs quite well and hey, this is a platform to demand performances, you'll hear them eventually, that's our promise. ;)", %{reason: inspect(reason)})
+
+
+    {:noreply, put_flash(socket, :info, error_message_part_1 <> "\n" <> error_message_part_2)}
+
   end
 
   @suggestions_playlist_name "Release Radar"

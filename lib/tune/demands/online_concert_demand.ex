@@ -3,12 +3,14 @@ defmodule Tune.Demands.OnlineConcertDemand do
   import Ecto.Changeset
 
   schema "online_concert_demands" do
-    field(:artist_id, :string)  # artists' spotify user id
+    field(:artist_id, :string)  # artists' spotify user id.
     field(:artist_name, :string)
+    field(:is_tributable, :boolean) # in case artist or band is not active in their careers.
+
     field(:user_id, :string)    # same as spotify user id (username), for now.
     field(:spotify_profile_img_url, :string)
 
-    field(:charitable_percentage, :integer)
+    field(:charitable_percentage, :integer, default: 0)
     field(:demand_as_multipass, :boolean, default: false)
     field(:have_slow_internet, :boolean, default: false)
     field(:will_support_causes, {:array, :string})
@@ -21,6 +23,10 @@ defmodule Tune.Demands.OnlineConcertDemand do
     field(:willing_to_pay_max, :integer)
 
     field(:note_to_artist, :string)
+
+
+    field(:preferred_broadcasters, {:array, :string})
+
     field(:requested_songs, {:array, :string})
 
     field(:demand_on_air_months, :integer)
@@ -44,6 +50,7 @@ defmodule Tune.Demands.OnlineConcertDemand do
         :user_id,
         :artist_id,
         :artist_name,
+        :is_tributable,
         :spotify_profile_img_url,
         :event_related_helps_offered,
         :skills_offered_for_public,
@@ -52,6 +59,7 @@ defmodule Tune.Demands.OnlineConcertDemand do
         :will_support_causes,
         :willing_to_pay_min,
         :willing_to_pay_max,
+        :preferred_broadcasters,
         :charitable_percentage,
         :demand_as_multipass,
         :demand_on_air_months,
