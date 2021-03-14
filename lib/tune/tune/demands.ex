@@ -18,7 +18,8 @@ defmodule Tune.Demands do
 
   """
   def list_online_concert_demands(spotify_username) do
-    Repo.all(from demand in OnlineConcertDemand, where: demand.user_id == ^spotify_username)
+    Repo.all(from(demand in OnlineConcertDemand, where: demand.user_id == ^spotify_username,
+    order_by: [desc: demand.updated_at]))
   end
 
   @doc """
@@ -50,7 +51,6 @@ defmodule Tune.Demands do
 
   """
   def create_online_concert_demand(attrs \\ %{}) do
-
     %OnlineConcertDemand{}
     |> OnlineConcertDemand.changeset(attrs)
     |> Repo.insert()

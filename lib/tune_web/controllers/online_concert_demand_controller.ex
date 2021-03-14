@@ -3,8 +3,10 @@ defmodule TuneWeb.OnlineConcertDemandController do
 
   alias Tune.Demands
   alias Tune.Demands.OnlineConcertDemand
+  alias Tune.Spotify.Schema.{Episode, Track}
 
   def index(conn, _params) do
+    conn.assigns.user.avatar_url |> IO.inspect()
     spotify_username = conn.assigns.user.name
     online_concert_demands = Demands.list_online_concert_demands(spotify_username)
     render(conn, "index.html", online_concert_demands: online_concert_demands)
@@ -17,12 +19,15 @@ defmodule TuneWeb.OnlineConcertDemandController do
 
   def create(conn, %{"online_concert_demand" => online_concert_demand_params}) do
     # add spotify username to demand.
-    online_concert_demand_params = online_concert_demand_params
-    |> Map.put("user_id", conn.assigns.user.name)
+
+
+    online_concert_demand_params =
+      online_concert_demand_params
+      |> Map.put("user_id", conn.assigns.user.name)
+      |> Map.put("spotify_profile_img_url", conn.assigns.user.avatar_url)
 
     case Demands.create_online_concert_demand(online_concert_demand_params) do
       {:ok, online_concert_demand} ->
-
         conn
         |> put_flash(:info, "well, now your demand is literally on-air!")
         |> redirect(to: Routes.online_concert_demand_path(conn, :show, online_concert_demand))
@@ -53,7 +58,10 @@ defmodule TuneWeb.OnlineConcertDemandController do
         |> redirect(to: Routes.online_concert_demand_path(conn, :show, online_concert_demand))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", online_concert_demand: online_concert_demand, changeset: changeset)
+        render(conn, "edit.html",
+          online_concert_demand: online_concert_demand,
+          changeset: changeset
+        )
     end
   end
 
@@ -65,4 +73,6 @@ defmodule TuneWeb.OnlineConcertDemandController do
     |> put_flash(:info, "Online concert demand deleted successfully.")
     |> redirect(to: Routes.online_concert_demand_path(conn, :index))
   end
+
+
 end

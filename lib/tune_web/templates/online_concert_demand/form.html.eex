@@ -5,10 +5,9 @@
     </div>
   <% end %>
 
-
-  <%= label f, :artist_id %>
-  <%= text_input f, :artist_id %>
-  <%= error_tag f, :artist_id %>
+  <%= label f, :artist_name %>
+  <%= text_input f, :artist_name %>
+  <%= error_tag f, :artist_name %>
 
   <%= label f, :i_am_willing_to_pay_min %>
   <%= number_input f, :willing_to_pay_min %>
@@ -18,16 +17,40 @@
   <%= number_input f, :willing_to_pay_max %>
   <%= error_tag f, :willing_to_pay_max %>
 
-  <%= label f, :can_offer_help_instead %>
-  <%= checkbox f, :can_offer_help %>
-  <%= error_tag f, :can_offer_help %>
+
+  <%= label f, :can_offer_help_for_event %>
+  <%= multiple_select f, :event_related_helps_offered,
+  [ promotion: "promotion",
+  "equipment access": "equipment_access",
+  "connectivity": "connectivity",
+  "digital tool access": "digital_tool_access",
+  "studio access": "workspace_access",
+  "transportation": "transportation",
+  "accommodation": "accommodation",
+  "insurance": "insurance",
+  "visa support/letter": "visa_support"
+  ] %>
+  <%= error_tag f, :event_related_helps_offered %>
 
 
-  <%= label f, :charitable_percentage %>
-  <%= number_input f, :charitable_percentage %>
-  <%= error_tag f, :charitable_percentage %>
+ <%= label f, :can_share_time_with_public %>
+  <%= multiple_select f, :skills_offered_for_public,
+  ["translation": "translation",
+  "listen to anyone's story": "listen_to_anyones_story",
+  "knowledge about cities": "knowledge_about_cities",
+  "knowledge in arts and culture": "knowledge_in_arts_and_culture",
+  "knowledge in sustainability": "knowledge_in_sustainability",
+  "knowledge in science and health": "knowledge_in_science",
+  "knowledge in technology": "knowledge_in_technology",
+  "knowledge in politics and bureaucracy": "knowledge_in_politics_and_bureaucracy"
+  ] %>
+  <%= error_tag f, :skills_offered_for_public %>
 
-  <%= label f, :will_support_causes %>
+  <%= label f, :will_share_my_skills_for_minutes %>
+  <%= number_input f, :time_offer_for_skills_in_mins %>
+  <%= error_tag f, :time_offer_for_skills_in_mins %>
+
+  <%= label f, :also_will_support_causes %>
   <%= multiple_select f, :will_support_causes,
   ["Climate Change": "climate_change",
   "Anti-Discrimination": "anti_discrimination",
@@ -37,6 +60,10 @@
 
   ] %>
   <%= error_tag f, :will_support_causes %>
+
+  <%= label f, :with_charitable_percentage %>
+  <%= number_input f, :charitable_percentage %>
+  <%= error_tag f, :charitable_percentage %>
 
 
   <%= label f, :demand_as_multipass %>
@@ -58,7 +85,6 @@
   <%= text_input f, :note_to_artist %>
   <%= error_tag f, :note_to_artist %>
 
-  <div>
-    <%= submit "Save" %>
-  </div>
+  <%= content_tag :button, gettext("save"), type: "submit", class: "mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900" %>
+
 <% end %>

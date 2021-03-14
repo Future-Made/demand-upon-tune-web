@@ -1,7 +1,16 @@
-<h1>just demanded!</h1>
 
 <ul>
 
+
+  <li>
+    <strong>Users to attend:</strong>
+    <%= @online_concert_demand.user_id %>
+  </li>
+
+  <li>
+    <strong>Artist(s):</strong>
+    <%= @online_concert_demand.artist_name %>
+  </li>
 
   <li>
     <strong>Willing to pay min:</strong>
@@ -14,11 +23,6 @@
   </li>
 
   <li>
-    <strong>Have slow internet:</strong>
-    <%= @online_concert_demand.have_slow_internet %>
-  </li>
-
-  <li>
     <strong>Will support causes:</strong>
     <%= @online_concert_demand.will_support_causes %>
   </li>
@@ -27,6 +31,11 @@
     <strong>Charitable percentage:</strong>
     <%= @online_concert_demand.charitable_percentage %>
   </li>
+  <li>
+    <strong>Have slow internet:</strong>
+    <%= @online_concert_demand.have_slow_internet %>
+  </li>
+
 
   <li>
     <strong>Demand as multipass:</strong>
@@ -34,8 +43,8 @@
   </li>
 
   <li>
-    <strong>Demand on air (months):</strong>
-    <%= @online_concert_demand.demand_on_air_months %>
+    <strong>Keep my demand on-air (months):</strong>
+    <%= @online_concert_demand.demand_on_air_months%>
   </li>
 
   <li>
@@ -49,22 +58,33 @@
   </li>
 
   <li>
-    <strong>Can offer help:</strong>
-    <%= @online_concert_demand.can_offer_help %>
+    <strong>Can offer help for event:</strong>
+    <%= @online_concert_demand.event_related_helps_offered %>
+  </li>
+
+
+  <li>
+    <strong>Can offer skills for public :</strong>
+    <%= @online_concert_demand.skills_offered_for_public %>
   </li>
 
   <li>
-    <strong>User:</strong>
-    <%= @online_concert_demand.user_id %>
+    <strong>With time (in minutes)</strong>
+    <%= @online_concert_demand.time_offer_for_skills_in_mins %>
   </li>
 
-  <li>
-    <strong>Artist:</strong>
-    <%= @online_concert_demand.artist_id %>
-  </li>
+
 
 </ul>
 
+
+     <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
+
 <span><%= link "Edit", to: Routes.online_concert_demand_path(@conn, :edit, @online_concert_demand) %></span>
+    </button>
  &nbsp;
+
+     <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
   <span><%= link "Back", to: Routes.online_concert_demand_path(@conn, :index), class: "btn" %></span>
+
+    </button>

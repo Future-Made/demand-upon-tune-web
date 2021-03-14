@@ -1,5 +1,84 @@
+
+<div class="container my-12 mx-auto px-4 md:px-12">
+    <div class="flex flex-wrap -mx-1 lg:-mx-4">
+
+    <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+    <%= for online_concert_demand <- @online_concert_demands do %>
+
+ <!-- Article -->
+            <article class="overflow-hidden rounded-lg shadow-lg">
+
+                <a href="#">
+                    <img alt="Placeholder" class="block h-auto w-full" src="https://picsum.photos/600/400/?random">
+                </a>
+
+                <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+
+
+                    <h1 class="text-lg">
+                        <a class="no-underline hover:underline text-black" href="#">
+                                <%= online_concert_demand.artist_name %>
+
+                        </a>
+                    </h1>
+
+                    <row>
+                          <p class="text-grey-darker text-sm">
+                       with affordables <%= online_concert_demand.willing_to_pay_min %> to <%= online_concert_demand.willing_to_pay_max %> Euros
+
+                    </p>
+                    </row>
+
+                    <row>
+
+                    <p class="text-grey-darker text-sm">
+                    |>  <%= online_concert_demand.charitable_percentage %> % of it defined as charitable.
+                    </p>
+
+                      </row>
+
+
+                </header>
+
+                <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                    <a class="flex items-center no-underline hover:underline text-black" href="#">
+                        <img alt="demanded by: " class="block rounded-full"
+                        width="64"
+                        height="64"
+                        src= <%= online_concert_demand.spotify_profile_img_url %>
+
+                        >
+                        <p class="ml-2 text-sm">
+                                <%= online_concert_demand.user_id %>
+
+                        </p>
+                    </a>
+                    <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
+                        <span class="hidden">Like</span>
+                        <i class="fa fa-heart"></i>
+                    </a>
+        <span><%= link "Show", to: Routes.online_concert_demand_path(@conn, :show, online_concert_demand) %></span>
+        <span><%= link "Edit", to: Routes.online_concert_demand_path(@conn, :edit, online_concert_demand) %></span>
+        <span><%= link "Delete", to: Routes.online_concert_demand_path(@conn, :delete, online_concert_demand), method: :delete, data: [confirm: "Are you sure?"] %></span>
+
+                </footer>
+
+            </article>
+
+<% end %>
+
+
+            <!-- END Article -->
+            <!-- END Article -->
+    </div>
+        </div>
+
+    </div>
+</div>
+
+
 <table>
-  <thead>
+  <%# <thead>
     <tr>
       <th>artist</th>
       <th>willing to pay min</th>
@@ -11,35 +90,12 @@
       <th>will stay for (months)</th>
       <th>requested songs</th>
       <th>note to artist</th>
-      <th>can offer help</th>
-
-      <th></th>
+      <th>event related helps offered</th>
+      <th>time-based offered skills</th>
+      <th>time shared (in minutes)</th>
     </tr>
-  </thead>
+  </thead> %>
   <tbody>
-<%= for online_concert_demand <- @online_concert_demands do %>
-    <tr>
-      <td><%= online_concert_demand.artist_id %></td>
-      <td><%= online_concert_demand.willing_to_pay_min %></td>
-      <td><%= online_concert_demand.willing_to_pay_max %></td>
-      <td><%= online_concert_demand.have_slow_internet %></td>
-      <td><%= online_concert_demand.will_support_causes %></td>
-      <td><%= online_concert_demand.charitable_percentage %></td>
-      <td><%= online_concert_demand.demand_as_multipass %></td>
-      <td><%= online_concert_demand.demand_on_air_months %></td>
-      <td><%= online_concert_demand.requested_songs %></td>
-      <td><%= online_concert_demand.note_to_artist %></td>
-      <td><%= online_concert_demand.can_offer_help %></td>
 
-
-      <td>
-        <span><%= link "Show", to: Routes.online_concert_demand_path(@conn, :show, online_concert_demand) %></span>
-        <span><%= link "Edit", to: Routes.online_concert_demand_path(@conn, :edit, online_concert_demand) %></span>
-        <span><%= link "Delete", to: Routes.online_concert_demand_path(@conn, :delete, online_concert_demand), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
   </tbody>
 </table>
-
-<span><%= link "demand a new one", to: Routes.online_concert_demand_path(@conn, :new) %></span>

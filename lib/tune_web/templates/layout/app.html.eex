@@ -11,12 +11,20 @@
   <%= link gettext("Home"), to: "/" %>
 
   </button>
+   &nbsp;·&nbsp;
+
+      <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
+   <%= link gettext("my demands"), to: Routes.online_concert_demand_path(@conn, :index)%>
+
+  </button>
+   &nbsp;·&nbsp;
+  &nbsp;·&nbsp;
 
  &nbsp;&nbsp; ·
 
  &nbsp;&nbsp; ·
 
-   <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
+    <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
   <%= link gettext("demand another"), to: Routes.online_concert_demand_path(@conn, :new) %>
 
   </button>
