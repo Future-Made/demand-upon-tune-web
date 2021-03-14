@@ -1,4 +1,14 @@
 <div class="full-screen-notice">
-  <%= content_tag :p, "The application requires you to Login into your Spotify account." %>
-  <%= link gettext("Login via Spotify"), to: Routes.auth_path(@conn, :request, :spotify) %>
+  <%= content_tag :p, "for the time being" %>
+
+  <%= content_tag :p, "Future, Made - Events requires you" %>
+
+  <%= content_tag :p, "to join with a Spotify account." %>
+
+      <br><br>
+       <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-green-400">
+      <%= link gettext("login via Spotify"), to: Routes.auth_path(@conn, :request, :spotify) %>
+
+         </button>
+
 </div>
