@@ -5,47 +5,173 @@
     </div>
   <% end %>
 
-  <%= label f, :imagine_who_why_when_and_how%>
-  <%= text_input f, :artist_name, placeholder: gettext("Artist/Band Name") %>
-  <%= error_tag f, :artist_name %>
+
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0">
+        <h3 class="mt-4 mb-4 text-4xl font-medium leading-6 text-gray-900">Artists to stage:</h3>
 
 
-  <%= error_tag f, :is_tributable %>
+         <p class="mt-4 mb-8 text-md text-gray-600">
+          Hey.. in case artists/bands are not active, it means tributable.
+        </p>
 
 
-              <div class="mt-4 space-y-4">
+         <p class="mt-4 mb-8 text-md text-gray-600">
+            check below if you are still interested:
+        </p>
+
+  <div class="mt-4 space-y-4">
                 <div class="flex items-start">
                   <div class="flex items-center h-5">
                     <%= checkbox f, :is_tributable, class: "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" %>
 
                   </div>
                   <div class="ml-3 text-sm">
-                    <%= label f, :interested_in_a_tribute_as_well, class: "font-medium text-gray-700"%>
-
-                    <p class="text-gray-500">Get notified when artists would perform for a tribute concert.</p>
+                    <%= label f, :sounds_good_to_me, class: "font-medium text-gray-700"%>
                   </div>
-                </div> </div>
+                </div>
+                </div>
+  <%= error_tag f, :is_tributable %>
+
+
+      </div>
+    </div>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="shadow sm:rounded-md sm:overflow-hidden">
+          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+            <div class="grid grid-cols-3 gap-6">
+              <div class="col-span-3 sm:col-span-2">
+                <label for="company_website" class="block text-md font-medium text-gray-700">
+                  Stage
+                </label>
+                <div class="mt-1 flex rounded-md shadow-sm">
+                  <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                    staging
+                  </span>
+                    <%= text_input f, :artist_name, placeholder: gettext("artist name here"), class: "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+                </div>
+        <p class="mt-4 mb-4 text-md text-gray-600">
+          imagining a festival? no problem.
+        </p>
+                <p class="mt-4 mb-4 text-md text-gray-600">
+          just use plusplus sign to extend artists on staging:
+        </p>
+              <footer class="flex items-center justify-between leading-none p-2 mb-4 md:p-4">
+          eg. Pink Floyd ++ Waldeck
+        </footer>
+              </div>
+            </div>
+
+            <div>
+              <label for="about" class="block text-md font-medium text-gray-700">
+                Your message to them
+              </label>
+              <div class="mt-1">
+                <%= textarea f, :note_to_artist, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md", placeholder: gettext("thoughts, hopes, non-sense, anything peaceful goes") %>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="hidden sm:block" aria-hidden="true">
+  <div class="py-5">
+    <div class="border-t border-gray-200"></div>
+  </div>
+</div>
+
+<div class="mt-10 sm:mt-0">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0 leading-snug">
+        <h3 class="text-4xl mb-4 font-medium leading-6 text-gray-900">Offer/Demand</h3>
+        <p class="mt-8 text-md text-gray-600">
+
+feel free to offer your skills and resources to be used for the event or planetary causes and future open projects.
+
+
+             <p class="mt-4 text-md text-gray-600">
+
+for number inputs,  going below zero; in terms of money or time, literally means <strong>"expression of demand".</strong>
+        </p>
+
+        </p>
+
+              <footer class="flex mt-4 items-left justify-between leading-none mb-2">
+          <strong> eg. can chip in between 10-20 Euros, reserving 20% of it as charitable </strong>
+          <strong> also offering skills for 40 minutes: translation | programming</strong>
+
+        </footer>
+
+
+      </div>
+    </div>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+
+              <%# <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                <input type="text" name="city" id="city" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div> %>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2 mt-1 flex rounded-md shadow-sm">
+
+                  <div class="mt-1 flex rounded-md shadow-sm">
+
+                <label for="state" class="block text-sm font-medium text-gray-700">offer or demand (min)</label>
+                <%= number_input f, :willing_to_pay_min%>
+                <%= error_tag f, :willing_to_pay_min %>
+
+                  <span class="inline-flex items-center px-3 rounded-l-md rounded-r-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                    Euros
+                  </span>
+              </div>
+                </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2 mt-1 flex rounded-md shadow-sm">
+
+                                 <div class="mt-1 flex rounded-md shadow-sm">
+
+                <label for="state" class="block text-sm font-medium text-gray-700">offer or demand (max)</label>
+                <%= number_input f, :willing_to_pay_max %>
+                <%= error_tag f, :willing_to_pay_max %>
+
+
+                  <span class="inline-flex items-center px-3 rounded-l-md rounded-r-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                    Euros
+                  </span>
+              </div>
+                   </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <label for="state" class="block text-sm font-medium text-gray-700">charitable % </label>
+                <%= number_input f, :charitable_percentage %>
+                <%= error_tag f, :charitable_percentage %>
+              </div>
 
 
 
- <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
-<p>
-<strong>note: you can include values below zero; </strong></p>
-<p>meaning you need help in terms of money or time,</strong></p>
-<p>demanded from the artists</p></strong>
-<p>and their networks & communities.</p></strong>
+              </div>
 
-  <p>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</p>
-  <%= number_input f, :willing_to_pay_min, placeholder: gettext("can chip in min (same for a tribute)") %>
-  <%= error_tag f, :willing_to_pay_min %>
+              <%= label f, :willing_to_support_causes %>
+              <%= multiple_select f, :will_support_causes,
+              ["Climate Change": "climate_change",
+              "Anti-Discrimination": "anti_discrimination",
+              "Global Health": "global_health",
+              "Stop Hunger Now": "stop_hunger_now",
+              "Disarmament/World Peace": "disarmament"]
+              %>
+              <%= error_tag f, :will_support_causes %>
 
-    <%= number_input f, :willing_to_pay_max, placeholder: gettext("can chip in max (no limits)") %>
-  <%= error_tag f, :willing_to_pay_max %>
-
-  <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
-
-
-  <%= label f, :can_help_with_the_event %>
+              <%= label f, :can_help_with_the_event %>
   <%= multiple_select f, :event_related_helps_offered,
   [ "promotion": "promotion",
   "equipment access": "equipment_access",
@@ -74,28 +200,58 @@
   ] %>
   <%= error_tag f, :skills_offered_for_public %>
 
-    <%= number_input f, :time_offer_for_skills_in_mins, placeholder: gettext("for this much minutes") %>
-  <%= error_tag f, :time_offer_for_skills_in_mins %>
+    <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+        <label for="state" class="block text-sm font-medium text-gray-700">minutes to share </label>
+        <%= number_input f, :time_offer_for_skills_in_mins %>
+        <%= error_tag f, :time_offer_for_skills_in_mins %>
+    </div>
+
+            </div>
 
 
-  <p>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</p>
+          </div>
 
-  <%= label f, :willing_to_support_causes %>
-  <%= multiple_select f, :will_support_causes,
-  ["Climate Change": "climate_change",
-  "Anti-Discrimination": "anti_discrimination",
-  "Global Health": "global_health",
-  "Stop Hunger Now": "stop_hunger_now",
-  "Disarmament/World Peace": "disarmament"
+        </div>
+    </div>
+  </div>
+</div>
 
-  ] %>
-  <%= error_tag f, :will_support_causes %>
+<div class="hidden sm:block" aria-hidden="true">
+  <div class="py-5">
+    <div class="border-t border-gray-200"></div>
+  </div>
+</div>
 
-  <%= label f, :with_charitable_percentage %>
-  <%= number_input f, :charitable_percentage %>
-  <%= error_tag f, :charitable_percentage %>
+<div class="mt-10 sm:mt-0">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0 leading-snug">
+        <h3 class="text-4xl font-medium leading-6 text-gray-900 mb-6">Preferences</h3>
+        <p class="mt-4 text-md text-gray-600">
+          Decide which communications you'd like to receive and how.
+        </p>
+      </div>
+    </div>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+              <legend class="text-base font-medium text-gray-900">Broadcasters</legend>
+              <div class="mt-4 space-y-4">
+                <div class="flex items-start">
 
-  <p>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</p>
+                    <%= multiple_select f, :preferred_broadcasters,
+                    ["Youtube": "youtube",
+                    "Twitch": "twitch",
+                    "TikTok": "tiktok",
+                    "Facebook Live": "facebook_live"
+                    ] %>
+                    <%= error_tag f, :preferred_broadcasters %>
+                  </div>
+                </div>
+      </div>
+  </div>
+</div>
+
+
+
 
   <%= label f, :demand_as_multipass %>
   <%= checkbox f, :demand_as_multipass %>
@@ -105,29 +261,11 @@
   <%= checkbox f, :have_slow_internet %>
   <%= error_tag f, :have_slow_internet %>
 
-    <p>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</p>
- <%= label f, :preferred_broadcasters %>
-  <%= multiple_select f, :preferred_broadcasters,
-  ["Youtube": "youtube",
-  "Twitch": "twitch",
-  "TikTok": "tiktok",
-  "Facebook Live": "facebook_live"
-  ] %>
-  <%= error_tag f, :preferred_broadcasters %>
-
-  <p>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</p>
-
 
   <%= label f, :my_demand_should_stay_some_more_months %>
   <%= number_input f, :demand_on_air_months %>
   <%= error_tag f, :demand_on_air_months %>
-  <%# <%= label f, :requested_songs %>
-  <%# <%= multiple_select f, :requested_songs, ["Option 1": "option1", "Option 2": "option2"] %>
-  <%# <%= error_tag f, :requested_songs %>
 
-  <%= label f, :note_to_artist %>
-  <%= text_input f, :note_to_artist %>
-  <%= error_tag f, :note_to_artist %>
 
   <%= content_tag :button, gettext("save"), type: "submit", class: "mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900" %>
 

@@ -8,6 +8,12 @@
   <% {_query, %{total: 0}} -> %>
     <div class="full-screen-notice">
       <%= content_tag :p, gettext("No results") %>
+            <%= content_tag :p, gettext("No results") %>
+
+               <button class="mx-auto mt-4 mb-4 items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-yellow-600">
+  <%= link gettext("wanna type their name and demand, manually?"), to: Routes.online_concert_demand_path(@socket, :new) %>
+
+  </button>
     </div>
   <% {_query, results} -> %>
     <div class="results">

@@ -3,7 +3,7 @@
 
 
   <li>
-    <strong>demanded by (Spotify user names):</strong>
+    <strong>demanded by (your Spotify id):</strong>
     <%= @online_concert_demand.user_id %>
   </li>
 

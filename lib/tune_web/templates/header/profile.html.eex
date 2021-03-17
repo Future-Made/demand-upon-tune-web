@@ -8,7 +8,7 @@
    &nbsp;·&nbsp;
 
      <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-yellow-400">
-  <%= link gettext("demand new?"), to: Routes.online_concert_demand_path(@socket, :new) %>
+  <%= link gettext("demand artists (not)@Spotify"), to: Routes.online_concert_demand_path(@socket, :new) %>
 
   </button>
  &nbsp;&nbsp; · &nbsp; &nbsp;

@@ -5,24 +5,21 @@
     </div>
   <% _artist -> %>
     <article class="item" data-test-id="<%= @artist.id %>">
-      <section class="details">
+      <section class="details mx-auto">
         <div class="artwork">
-          <div class="play-button" phx-click="play" phx-value-uri="<%= @artist.uri %>">
-            <%= render TuneWeb.PlayerView, "icon_play.html", []%>
-          </div>
+
           <%= img_tag artwork(@artist), alt: @artist.name %>
         </div>
         <div class="meta">
-                          <p class="text-grey-darker">
-                       <strong> <%= content_tag :h1, @artist.name %></strong>
+            <p class="text-5xl text-grey-darker font-extrabold">
+             <strong> <%= @artist.name %></strong>
 
-                    </p>
+            </p>
 
 
      &nbsp;
 
 
-          <%= content_tag :p, total_albums(@artist) %>
           <div class="reference-links">
             <%= link to: Link.wikipedia(@artist), target: "_blank", class: "svg-link wikipedia" do %>
               <%= render "icon_wikipedia.html", [] %>
@@ -37,13 +34,21 @@
               <%= content_tag :span, gettext("Open in YouTube"), class: "visually-hidden" %>
             <% end %>
 
-            <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-pink-900">
-              <%= link "Demand online performance with with a future period in months", to: Routes.online_concert_demand_path(@socket, :new), class: "button button-small reversed" %>
-            </button>
-          </div>
-
         </div>
-        <br>
+                  </div>
+
+  <button class="mx-auto items-center px-2 py-2 mt-6 border rounded text-teal-200 border-teal-400 hover:border-white bg-pink-900">
+              <%= link "Demand an online performance from/for #{@artist.name}", to: Routes.online_concert_demand_path(
+                                                                                  @socket, :new,
+                                                                                  artist_id: @artist.id,
+                                                                                  artist_name: @artist.name,
+                                                                                  artist_thumbnail_small: @artist.thumbnails.small,
+                                                                                  artist_thumbnail_medium: @artist.thumbnails.medium,
+                                                                                  artist_thumbnail_large: @artist.thumbnails.large),
+                                                                                  class: "button button-small reversed" %>
+            </button>
+
+
       </section>
 
       <section class="items">

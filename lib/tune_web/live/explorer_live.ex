@@ -77,6 +77,11 @@ defmodule TuneWeb.ExplorerLive do
     case Tune.Auth.load_user(session) do
       {:authenticated, session_id, user} ->
         now_playing = spotify_session().now_playing(session_id)
+
+        # artists = now_playing.item.artists |> Enum.uniq()
+
+        # Enum.map(artists, fn artist -> IO.inspect(artist.name) end)
+
         devices = spotify_session().get_devices(session_id)
 
         socket =
@@ -92,6 +97,7 @@ defmodule TuneWeb.ExplorerLive do
           spotify_session().subscribe(session_id)
         end
 
+
         {:ok,
          socket
          |> assign(@initial_state)
@@ -104,6 +110,8 @@ defmodule TuneWeb.ExplorerLive do
            now_playing: now_playing,
            devices: devices
          )}
+
+
 
       _error ->
         {:ok, redirect(socket, to: "/auth/logout")}
@@ -302,7 +310,7 @@ defmodule TuneWeb.ExplorerLive do
        assign(socket,
          suggestions_playlist: playlist,
          suggestions_top_albums: Album.from_tracks(top_tracks),
-         suggestions_recently_played_albums: Album.from_tracks(recently_played_tracks),
+         suggestions_recegently_played_albums: Album.from_tracks(recently_played_tracks),
          suggestions_recommended_tracks: recommended_tracks
        )}
     else
@@ -478,7 +486,7 @@ defmodule TuneWeb.ExplorerLive do
     end
   end
 
-  @top_tracks_limit 24
+  @top_tracks_limit 16
 
   defp get_top_tracks(session_id, time_range) do
     opts = [limit: @top_tracks_limit, time_range: time_range]

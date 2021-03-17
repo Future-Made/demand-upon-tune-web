@@ -3,8 +3,13 @@ defmodule Tune.Demands.OnlineConcertDemand do
   import Ecto.Changeset
 
   schema "online_concert_demands" do
-    field(:artist_id, :string)  # artists' spotify user id.
+    field(:artist_id, :string)  # for now, artists' spotify user id.
     field(:artist_name, :string)
+
+    field(:artist_thumbnail_small, :string)
+    field(:artist_thumbnail_medium, :string)
+    field(:artist_thumbnail_large, :string)
+
     field(:is_tributable, :boolean) # in case artist or band is not active in their careers.
 
     field(:user_id, :string)    # same as spotify user id (username), for now.
@@ -50,6 +55,9 @@ defmodule Tune.Demands.OnlineConcertDemand do
         :user_id,
         :artist_id,
         :artist_name,
+        :artist_thumbnail_small,
+        :artist_thumbnail_medium,
+        :artist_thumbnail_large,
         :is_tributable,
         :spotify_profile_img_url,
         :event_related_helps_offered,
