@@ -1,88 +1,198 @@
 
-<ul>
-
-
-  <li>
-    <strong>demanded by (your Spotify id):</strong>
-    <%= @online_concert_demand.user_id %>
-  </li>
-
-  <li>
-    <strong>for artist(s):</strong>
-    <%= @online_concert_demand.artist_name %>
-  </li>
-
-  <li>
-    <strong>willing to pay min:</strong>
-    <%= @online_concert_demand.willing_to_pay_min %>
-  </li>
-
-  <li>
-    <strong>willing to pay max:</strong>
-    <%= @online_concert_demand.willing_to_pay_max %>
-  </li>
-
-  <li>
-    <strong>will support causes:</strong>
-    <%= @online_concert_demand.will_support_causes %>
-  </li>
-
-  <li>
-    <strong>charitable percentage:</strong>
-    <%= @online_concert_demand.charitable_percentage %>
-  </li>
-
-  <li>
-    <strong>can offer help for event:</strong>
-    <%= @online_concert_demand.event_related_helps_offered %>
-  </li>
-
-
-  <li>
-    <strong>offering skills for public :</strong>
-    <%= @online_concert_demand.skills_offered_for_public %>
-  </li>
-
-  <li>
-    <strong>sharing time for public (of minutes)</strong>
-    <%= @online_concert_demand.time_offer_for_skills_in_mins %>
-  </li>
-
-  <li>
-    <strong>would have slow internet:</strong>
-    <%= @online_concert_demand.have_slow_internet %>
-  </li>
-
-  <li>
-    <strong>preferred_broadcasters</strong>
-    <%= @online_concert_demand.preferred_broadcasters %>
-  </li>
-
-  <li>
-    <strong>demand as multipass:</strong>
-    <%= @online_concert_demand.demand_as_multipass %>
-  </li>
-
-
-  <li>
-    <strong>requested songs:</strong>
-    <%= @online_concert_demand.requested_songs %>
-  </li>
-
-  <li>
-    <strong>note to artist:</strong>
-    <%= @online_concert_demand.note_to_artist %>
-  </li>
-
-  <li>
-    <strong>keep my demand on-air (months):</strong>
-    <%= @online_concert_demand.demand_on_air_months%>
-  </li>
+<div class="bg-white shadow overflow-hidden sm:rounded-lg">
 
 
 
+  <div class="px-4 py-5 sm:px-6">
+    <h3 class="text-4xl mb-4 leading-6 font-medium text-gray-900">
+      Artist(s)/Band(s) &nbsp; &nbsp; |>  &nbsp; &nbsp; "<%= @online_concert_demand.artist_name %>"
+    </h3>
 
-</ul>
+    <p class="mt-1 max-w-2xl text-md text-gray-500">
+        Initially demanded at: <%= @online_concert_demand.inserted_at %>
+    </p>
+    <p class="mt-1 max-w-2xl text-md text-gray-500">
+        Last updated at: <%= @online_concert_demand.updated_at %>
+    </P>
+
+       <button class="mx-auto mt-4 items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-green-200">
+  <span><%= link "|< BackToDemands", to: Routes.online_concert_demand_path(@conn, :index), class: "btn" %></span>
+
+    </button>
+     <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-yellow-600">
+<span><%= link "edit this", to: Routes.online_concert_demand_path(@conn, :edit, @online_concert_demand) %></span>
+    </button>
+  </div>
+
+  <div class="border-t border-gray-200">
+    <dl>
+
+
+    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-2xl font-medium text-gray-500">
+          Note to artists
+        </dt>
+        <dd class="mt-1 text-xxl text-gray-900 sm:mt-0 sm:col-span-2">
+            <%= @online_concert_demand.note_to_artist %>
+        </dd>
+      </div>
+
+      <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-2xl font-medium text-gray-500">
+          Causes to support
+        </dt>
+
+
+        <dd class="mt-1 text-xl text-gray-900 sm:mt-0 sm:col-span-2">
+          <ul class="border border-gray-200 rounded-md divide-y divide-gray-200">
+
+                <%= for cause <- @online_concert_demand.will_support_causes do %>
+
+            <li class="pl-3 pr-4 py-3 flex items-center justify-between text-xl">
+              <div class="w-0 flex-1 flex items-center">
+                <!-- Heroicon name: solid/paper-clip -->
+                <%# <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
+                </svg> %>
+                <span class="ml-2 flex-1 w-0 truncate">
+                  <%= cause %>
+                </span>
+              </div>
+              <div class="ml-4 flex-shrink-0">
+                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                   Local NGOs
+                </a>
+              </div>
+
+              <div class="ml-4 flex-shrink-0">
+                <|>
+              </div>
+
+              <div class="ml-4 flex-shrink-0">
+                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                  Remote NGOs
+                </a>
+              </div>
+            </li>
+
+            <% end %>
+          </ul>
+        </dd>
+      </div>
+
+
+
+
+ <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-2xl font-medium text-gray-500">
+          Helps for performance
+        </dt>
+
+
+        <dd class="mt-1 text-xl text-gray-900 sm:mt-0 sm:col-span-2">
+          <ul class="border border-gray-200 rounded-md divide-y divide-gray-200">
+
+                <%= for help_for_performance <- @online_concert_demand.event_related_helps_offered do %>
+
+            <li class="pl-3 pr-4 py-3 flex items-center justify-between text-xl">
+              <div class="w-0 flex-1 flex items-center">
+                <!-- Heroicon name: solid/paper-clip -->
+                <%# <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
+                </svg> %>
+                <span class="ml-2 flex-1 w-0 truncate">
+                  <%= help_for_performance %>
+                </span>
+              </div>
+              <div class="ml-4 flex-shrink-0">
+                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                  skill details
+                </a>
+              </div>
+            </li>
+
+            <% end %>
+          </ul>
+        </dd>
+      </div>
+
+      <%=if @online_concert_demand.time_offer_for_skills_in_mins != nil do %>
+      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-2xl font-medium text-gray-500">
+          Time-based value
+        </dt>
+        <dd class="mt-1 text-xl text-gray-900 sm:mt-0 sm:col-span-2">
+          <%= @online_concert_demand.time_offer_for_skills_in_mins %> minutes
+        </dd>
+      </div>
+
+      <% end %>
+
+      <%=if @online_concert_demand.willing_to_pay_min != nil or  @online_concert_demand.willing_to_pay_max != nil  do %>
+
+      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 text-xl">
+        <dt class="text-2xl font-medium text-gray-500 text-xl">
+          Monetary values [min, max]
+        </dt>
+        <dd class="mt-1 text-xl text-gray-900 sm:mt-0 sm:col-span-2">
+        [ <%= @online_concert_demand.willing_to_pay_min %> , <%= @online_concert_demand.willing_to_pay_max %> ] Euros
+        </dd>
+      </div>
+
+      <% end %>
+
+      <%=if @online_concert_demand.charitable_percentage != nil do %>
+
+
+     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-2xl font-medium text-gray-500 text-xl">
+          Reserve for charitable
+        </dt>
+        <dd class="mt-1 text-xl text-gray-600 sm:mt-0 sm:col-span-2">
+          <%= @online_concert_demand.charitable_percentage %> %
+        </dd>
+      </div>
+
+      <% end %>
+
+<div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="time font-medium text-gray-500">
+          Preferred broadcasters
+        </dt>
+
+
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+          <ul class="border border-gray-200 rounded-md divide-y divide-gray-200">
+
+                <%= for preferred_broadcaster <- @online_concert_demand.preferred_broadcasters do %>
+
+            <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+              <div class="w-0 flex-1 flex items-center">
+                <!-- Heroicon name: solid/paper-clip -->
+                <%# <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
+                </svg> %>
+                <span class="ml-2 flex-1 w-0 truncate">
+                  <%= preferred_broadcaster %>
+                </span>
+              </div>
+
+            </li>
+
+            <% end %>
+          </ul>
+        </dd>
+      </div>
+
+
+
+
+
+    </dl>
+  </div>
+</div>
+
+
 
      <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-green-200">
   <span><%= link "|< BackToDemands", to: Routes.online_concert_demand_path(@conn, :index), class: "btn" %></span>
@@ -91,4 +201,3 @@
      <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-yellow-600">
 <span><%= link "edit this", to: Routes.online_concert_demand_path(@conn, :edit, @online_concert_demand) %></span>
     </button>
- &nbsp;
