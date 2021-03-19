@@ -35,7 +35,7 @@
         <dd class="mt-1 text-xxl text-gray-900 sm:mt-0 sm:col-span-2">
             <%= @online_concert_demand.note_to_artist %>
         </dd>
-      </div>
+    </div>
 
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-2xl font-medium text-gray-500">
@@ -106,7 +106,7 @@
               </div>
               <div class="ml-4 flex-shrink-0">
                 <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-                  skill details
+                   previous helps with this
                 </a>
               </div>
             </li>
@@ -115,6 +115,59 @@
           </ul>
         </dd>
       </div>
+
+
+ <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-2xl font-medium text-gray-500">
+          Skills to help with
+        </dt>
+
+
+        <dd class="mt-1 text-xl text-gray-900 sm:mt-0 sm:col-span-2">
+          <ul class="border border-gray-200 rounded-md divide-y divide-gray-200">
+
+                <%= for skill <- @online_concert_demand.skills_offered_for_public do %>
+
+            <li class="pl-3 pr-4 py-3 flex items-center justify-between text-xl">
+              <div class="w-0 flex-1 flex items-center">
+                <!-- Heroicon name: solid/paper-clip -->
+                <%# <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
+                </svg> %>
+                <span class="ml-2 flex-1 w-0 truncate">
+                  <%= skill %>
+                </span>
+              </div>
+              <div class="ml-4 flex-shrink-0">
+                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                   x
+                </a>
+              </div>
+
+              <div class="ml-4 flex-shrink-0">
+                <|>
+              </div>
+
+              <div class="ml-4 flex-shrink-0">
+                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                  y
+                </a>
+              </div>
+            </li>
+
+            <% end %>
+          </ul>
+        </dd>
+      </div>
+
+      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-2xl font-medium text-gray-500">
+          Other skills to share
+        </dt>
+        <dd class="mt-1 text-xxl text-gray-900 sm:mt-0 sm:col-span-2">
+            <%= @online_concert_demand.other_skills_offered %>
+        </dd>
+    </div>
 
       <%=if @online_concert_demand.time_offer_for_skills_in_mins != nil do %>
       <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

@@ -12,13 +12,12 @@ defmodule Tune.Repo.Migrations.CreateOnlineConcertDemands do
       add :demand_on_air_months, :integer
       add :requested_songs, {:array, :string}
       add :note_to_artist, :string
-      add :can_offer_help, :boolean, default: false, null: false
       add :artist_id, :string
       add :user_id, :string
       timestamps()
     end
 
-    create index(:online_concert_demands, [:user_id])
+    create index(:online_concert_demands, [:user_id, ])
 
   end
 end

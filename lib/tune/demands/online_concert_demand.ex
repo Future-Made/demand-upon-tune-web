@@ -22,10 +22,11 @@ defmodule Tune.Demands.OnlineConcertDemand do
 
     field(:event_related_helps_offered, {:array, :string})
     field(:skills_offered_for_public, {:array, :string})
-    field(:time_offer_for_skills_in_mins, :integer)
+    field(:other_skills_offered, :string)
+    field(:time_offer_for_skills_in_mins, :integer, default: 0)
 
-    field(:willing_to_pay_min, :integer)
-    field(:willing_to_pay_max, :integer)
+    field(:willing_to_pay_min, :integer, default: 0)
+    field(:willing_to_pay_max, :integer, default: 0)
 
     field(:note_to_artist, :string)
 
@@ -62,6 +63,7 @@ defmodule Tune.Demands.OnlineConcertDemand do
         :spotify_profile_img_url,
         :event_related_helps_offered,
         :skills_offered_for_public,
+        :other_skills_offered,
         :time_offer_for_skills_in_mins,
         :have_slow_internet,
         :will_support_causes,
