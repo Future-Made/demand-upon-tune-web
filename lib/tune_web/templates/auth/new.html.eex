@@ -5,10 +5,47 @@
 
   <%= content_tag :p, "to join with a Spotify account." %>
 
-      <br><br>
-       <button class="mx-auto items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-green-400">
+ <button class="mx-auto mt-12 mb-36 items-center px-3 py-2 border
+       rounded text-teal-200 border-teal-400 hover:text-white hover:border-white bg-green-400">
       <%= link gettext("login via Spotify"), to: Routes.auth_path(@conn, :request, :spotify) %>
 
-         </button>
+ </button>
+           <%= content_tag :p, "Presented and gifted by:", class: "text-4xl mt-64" %>
+
+           <%= content_tag :p, "\"Future, Made Collective\"", class: "text-4xl mt-8 bg-gray-200" %>
+
+  <%= content_tag :p, "Initiated in late 2020, working on increasing accessibility and sustainability of the arts, culture and knowledge.", class: "mt-6" %>
+
+  <%= content_tag :p, "Focused on creation of a demand-base around future empowerments and experiences, what we call;", class: "mt-6" %>
+
+  </strong>
+    <%= content_tag :p, "Universal Basic Experiences (UBE).", class: "mt-2 bg-blue-200" %>
+  </strong>
+
+    <%= content_tag :p, "via what we call", class: "mt-16" %>
+        <%= content_tag :p, "Expression of Demand", class: "mt-2 bg-yellow-200" %>
+
+
+
+  <%= content_tag :p, "Expecting to observe a multi-dimensional paradigm shift starting with", class: "mt-16" %>
+
+  <%= content_tag :p, "what, why and how we are:", class: "mt-66" %>
+
+
+  </strong>
+    <%= content_tag :p, "doing or not doing things.", class: "mt-6 bg-purple-200" %>
+  </strong>
+
+    </strong>
+    <%= content_tag :p, "with peace, love and solidarity", class: "mt-6 bg-green-300" %>
+  </strong>
+
+  <a href="#" class="mt-12">
+      <img alt="Placeholder" class="block h-auto w-full" src="https://i.imgur.com/pIPZyFH.png">
+  </a>
+
+
+
+
 
 </div>
