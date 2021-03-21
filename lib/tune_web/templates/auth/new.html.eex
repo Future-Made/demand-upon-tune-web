@@ -10,7 +10,7 @@
       <%= link gettext("login via Spotify"), to: Routes.auth_path(@conn, :request, :spotify) %>
 
  </button>
-           <%= content_tag :p, "Presented and gifted by:", class: "text-4xl mt-64" %>
+           <%= content_tag :p, "Presented and gifted by:", class: "text-4xl mt-56" %>
 
            <%= content_tag :p, "\"Future, Made Collective\"", class: "text-4xl mt-8 bg-gray-200" %>
 

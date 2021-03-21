@@ -16,8 +16,8 @@ defmodule Tune.Demands.OnlineConcertDemand do
     field(:spotify_profile_img_url, :string)
 
     field(:charitable_percentage, :integer, default: 0)
-    field(:demand_as_multipass, :boolean, default: false)
-    field(:have_slow_internet, :boolean, default: false)
+    field(:demand_as_multipass, :boolean)
+    field(:have_slow_internet, :boolean)
     field(:will_support_causes, {:array, :string})
 
     field(:event_related_helps_offered, {:array, :string})
@@ -32,6 +32,11 @@ defmodule Tune.Demands.OnlineConcertDemand do
 
 
     field(:preferred_broadcasters, {:array, :string})
+    field(:streaming_platforms, {:array, :string})
+
+    field(:suggested_streaming_platforms, :string)
+    field(:suggested_radios, :string)
+
 
     field(:requested_songs, {:array, :string})
 
@@ -70,6 +75,9 @@ defmodule Tune.Demands.OnlineConcertDemand do
         :willing_to_pay_min,
         :willing_to_pay_max,
         :preferred_broadcasters,
+        :streaming_platforms,
+        :suggested_streaming_platforms,
+        :suggested_radios,
         :charitable_percentage,
         :demand_as_multipass,
         :demand_on_air_months,

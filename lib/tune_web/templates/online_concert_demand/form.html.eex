@@ -9,7 +9,7 @@
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="md:col-span-1">
       <div class="px-4 sm:px-0">
-        <h3 class="mt-4 mb-4 text-4xl font-medium leading-6 text-gray-900">Artists to stage:</h3>
+        <h3 class="mt-8 mb-4 text-4xl font-medium leading-6 text-gray-900">Artists to stage</h3>
 
 
          <p class="mt-4 mb-8 text-md text-gray-600">
@@ -37,31 +37,27 @@
 
       </div>
     </div>
-    <div class="mt-5 md:mt-0 md:col-span-2">
+    <div class="mt-8 md:mt-0 md:col-span-2">
         <div class="shadow sm:rounded-md sm:overflow-hidden">
           <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
             <div class="grid grid-cols-3 gap-6">
               <div class="col-span-3 sm:col-span-2">
-                <label for="company_website" class="block text-md font-medium text-gray-700">
-                  Stage
-                </label>
-                <div class="mt-1 flex rounded-md shadow-sm">
-                  <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                    staging
-                  </span>
-                    <%= text_input f, :artist_name, placeholder: gettext("artist name here"), class: "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" %>
 
-                   <div class="mt-6">
+                <div class="mt-1 flex rounded-md shadow-sm">
+                  <span class="inline-flex sm:text-sm md:text-2xlitems-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 md:text-2xl mt-2">
+                    staging:
+                  </span>
+                    <%= text_input f, :artist_name, placeholder: gettext("artist name here"), class: "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm md:text-2xl border-gray-300" %>
+
+                   <div class="mt-6 md:text-2xl">
                       <%= error_tag f, :artist_name %>
                   </div>
                 </div>
         <p class="mt-4 mb-4 text-md text-gray-600">
-          imagining a festival? no problem.
+          Imagining a festival? no problem. Just use plusplus sign to add performers:
         </p>
-                <p class="mt-4 mb-4 text-md text-gray-600">
-          just use plusplus sign to extend artists on staging:
-        </p>
-              <footer class="flex items-center justify-between leading-none p-2 mb-4 md:p-4">
+
+         <footer class="flex items-center justify-between leading-none p-2 mb-2 md:p-4">
           eg. Pink Floyd ++ Waldeck
         </footer>
               </div>
@@ -72,7 +68,7 @@
                 Your message to them
               </label>
               <div class="mt-1">
-                <%= textarea f, :note_to_artist, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md", placeholder: gettext("thoughts, hopes, non-sense, anything peaceful goes") %>
+                <%= textarea f, :note_to_artist, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm md:text-2xl border-gray-300 rounded-md", placeholder: gettext("thoughts, hopes, non-sense, anything peaceful goes") %>
               </div>
             </div>
 
@@ -97,7 +93,7 @@
         <h3 class="text-4xl mb-4 font-medium leading-6 text-gray-900">Offer/Demand</h3>
         <p class="mt-8 text-md text-gray-600">
 
-feel free to offer your skills and resources to be used for the event or planetary causes and future open projects.
+Feel free to offer your skills and resources to be used for the event or planetary causes and future open projects.
 
 
              <p class="mt-4 text-md text-gray-600">
@@ -165,7 +161,7 @@ for number inputs,  going below zero; in terms of money or time, literally means
 
               </div>
 
-              <%= label f, :willing_to_support_causes %>
+              <%= label f, :willing_to_support_causes, class: "mt-4" %>
               <%= multiple_select f, :will_support_causes,
               ["Climate Change": "climate_change",
               "Anti-Discrimination": "anti_discrimination",
@@ -177,7 +173,7 @@ for number inputs,  going below zero; in terms of money or time, literally means
 
               <%= label f, :can_help_with_the_event %>
   <%= multiple_select f, :event_related_helps_offered,
-  [ "promotion": "promotion",
+  ["promotion": "promotion",
   "equipment access": "equipment_access",
   "connectivity": "connectivity",
   "digital tool access": "digital_tool_access",
@@ -210,14 +206,14 @@ for number inputs,  going below zero; in terms of money or time, literally means
         Other skills you might want to share
       </label>
       <div class="mt-4">
-        <%= textarea f, :other_skills_offered, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-2 block w-full sm:text-sm text-2xl border-gray-300 rounded-md",
+        <%= textarea f, :other_skills_offered, class: "md:text-2xl shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-2 block w-full sm:text-sm text-2xl border-gray-300 rounded-md",
         placeholder: gettext("let it be anything, you are fluent or want to improve at") %>
       </div>
   </div>
 
 
     <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-        <label for="state" class="block text-sm font-medium text-gray-700">minutes to share </label>
+        <label for="state" class="mt-4 block  md:text-xl font-medium text-gray-700">minutes to share </label>
         <%= number_input f, :time_offer_for_skills_in_mins %>
         <%= error_tag f, :time_offer_for_skills_in_mins %>
     </div>
@@ -238,41 +234,95 @@ for number inputs,  going below zero; in terms of money or time, literally means
   </div>
 </div>
 
+
 <div class="mt-10 sm:mt-0">
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="md:col-span-1">
       <div class="px-4 sm:px-0 leading-snug">
         <h3 class="text-4xl font-medium leading-6 text-gray-900 mb-6">Preferences</h3>
         <p class="mt-4 text-md text-gray-600">
-          Decide which communications you'd like to receive and how.
+          Decide via which platforms you'd like to attend or leave it blank.
+        </p>
+        <p class="mt-2  text-md text-gray-600">
+          Make your ticket as multi-pass, so you can attend with others.
+        </p>
+        <p class="mt-2 mb-8 text-md text-gray-600">
+          Finally, give artists some time to organize things.
         </p>
       </div>
     </div>
-    <div class="mt-5 md:mt-0 md:col-span-2">
+
+    <div>
+
+      <div class="mt-5 md:mt-0 md:col-span-2">
+                  <legend class="text-base font-medium text-gray-900">Streaming platforms</legend>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-start">
+
+                        <%= multiple_select f, :streaming_platforms,
+                        ["Youtube": "youtube",
+                        "Twitch": "twitch",
+                        "TikTok": "tiktok",
+                        "Facebook Live": "facebook_live",
+                        "Vimeo": "vimeo"
+                        ] %>
+                        <%= error_tag f, :streaming_platforms %>
+                      </div>
+                    </div>
+          </div>
+      </div>
+      <div>
+      <label for="about" class="mt-4 block text-md font-medium text-gray-900">
+        or suggset one
+      </label>
+      <div class="mt-4">
+        <%= textarea f, :suggested_streaming_platforms, class: "md:text-2xl shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-2 block w-full sm:text-sm text-2xl border-gray-300 rounded-md",
+        placeholder: gettext("any other platforms you'd like to stream the event from") %>
+      </div>
+  </div>
+
+    </div>
+
+    <div class="mt-5 mb-6 md:mt-0 md:col-span-2">
               <legend class="text-base font-medium text-gray-900">Broadcasters</legend>
               <div class="mt-4 space-y-4">
                 <div class="flex items-start">
 
                     <%= multiple_select f, :preferred_broadcasters,
-                    ["Youtube": "youtube",
-                    "Twitch": "twitch",
-                    "TikTok": "tiktok",
-                    "Facebook Live": "facebook_live"
+                    ["KEXP - is a public radio station in Seattle, Washington.": "kexp_usa",
+                    "soma.fm - a listener-supported, commercial-free internet-only radio station.": "soma_fm",
+                    "FSK - is a free, or also non-commercial radio in Hamburg": "fsk_de",
+                    "laut.fm - is a mixed bag in the greatest way and plays a range inclusive of German hip-hop as well as some schlager.": "laut_fm",
+                    "Reboot.fm - is a Berlin-based art radio station, includes artists, musicians, activists and plenty more.": "reboot_fm",
+                    "Acik Radyo - is a collective radio station in Istanbul. Open to all the sounds, colors, and vibrations of the universe.": "acik_radyo",
                     ] %>
                     <%= error_tag f, :preferred_broadcasters %>
                   </div>
                 </div>
       </div>
   </div>
-</div>
+
+      <div>
+      <label for="about" class="mt-4 block text-md font-medium text-gray-900">
+        or suggset one
+      </label>
+      <div class="mt-4">
+        <%= textarea f, :suggested_radios, class: "md:text-2xl  shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-2 block w-full sm:text-sm text-2xl border-gray-300 rounded-md",
+        placeholder: gettext("any other online radio station you'd like to see them organizing the event") %>
+      </div>
+  </div>
+
+    </div>
 
 
-  <%= label f, :will_have_low_bandwidth %>
+
+
+  <%= label f, :will_have_slow_internet %>
   <%= checkbox f, :have_slow_internet %>
   <%= error_tag f, :have_slow_internet %>
 
 
-  <%= label f, :my_demand_should_stay_some_more_months %>
+  <%= label f, :keep_demand_on_air_for_some_months %>
   <%= number_input f, :demand_on_air_months %>
 
    <div class="mt-6">
